@@ -1,41 +1,84 @@
-/* dark-temple.css - Tema oscuro para la tienda de ropa oversize */
+/* dark-temple.css - Tema oscuro actualizado para la tienda de ropa oversize */
 
 /* ---------- VARIABLES ---------- */
 :root {
-    --dark-bg: #0a0a0a;
-    --darker-bg: #050505;
-    --accent: #8c52ff;
-    --text: #e0e0e0;
-    --muted-text: #999999;
-    --header-bg: rgba(10, 10, 10, 0.95);
-    --border-color: #333333;
+    --dark-bg: #121212;           /* Fondo principal más suave que negro puro */
+    --darker-bg: #0a0a0a;         /* Fondo secundario para contraste */
+    --medium-bg: #1e1e24;         /* Fondo medio para tarjetas y elementos */
+    --light-bg: #2a2a30;          /* Fondo claro para hover y elementos destacados */
+    --accent: #9d5cff;            /* Púrpura principal un poco más brillante y saturado */
+    --accent-secondary: #ff3e6c;  /* Acento secundario en tono rosa/rojo para call-to-actions */
+    --accent-hover: #b57bff;      /* Versión más clara del acento para hover */
+    --text: #ffffff;              /* Texto principal más blanco para mejor contraste */
+    --text-muted: #b0b0b0;        /* Texto secundario más claro y legible */
+    --text-subtle: #8a8a8a;       /* Texto terciario para información menos importante */
+    --border-color: #2d2d3a;      /* Bordes más visibles pero sutiles */
+    --success: #4cd964;           /* Verde para mensajes de éxito */
+    --gradient-primary: linear-gradient(135deg, #9d5cff 0%, #5c11ff 100%); /* Gradiente principal */
+    --gradient-cta: linear-gradient(135deg, #ff3e6c 0%, #ff8f6c 100%);     /* Gradiente para CTA */
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.3);  /* Sombra más pronunciada */
 }
 
 /* ---------- ESTILOS GENERALES ---------- */
 body {
     background-color: var(--dark-bg);
     color: var(--text);
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
 }
 
 header {
-    background-color: var(--header-bg);
+    background-color: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 nav a {
     color: var(--text);
+    position: relative;
+    padding: 5px 0;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 nav a:hover, nav a.active {
     color: var(--accent);
 }
 
-nav a:hover:after, nav a.active:after {
+nav a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
     background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+nav a:hover:after, nav a.active:after {
+    width: 100%;
 }
 
 .cart-count {
-    background-color: var(--accent);
+    background-color: var(--accent-secondary);
+    box-shadow: 0 0 10px rgba(255, 62, 108, 0.5);
+}
+
+/* Botones generales */
+.button, button {
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.button:hover, button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* ---------- HERO TEMPLO OSCURO ---------- */
@@ -45,7 +88,7 @@ nav a:hover:after, nav a.active:after {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(rgba(5, 5, 5, 0.75), rgba(5, 5, 5, 0.85)), url('../assets/images/banners/dark-temple-bg.jpg');
+    background: linear-gradient(rgba(12, 12, 14, 0.7), rgba(8, 8, 12, 0.85)), url('../assets/images/banners/dark-temple-bg.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -59,7 +102,7 @@ nav a:hover:after, nav a.active:after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(140, 82, 255, 0.1) 0%, rgba(10, 10, 10, 0) 70%);
+    background: radial-gradient(circle at center, rgba(157, 92, 255, 0.1) 0%, rgba(10, 10, 10, 0) 70%);
 }
 
 .hero-content {
@@ -69,6 +112,18 @@ nav a:hover:after, nav a.active:after {
     padding: 0 20px;
     position: relative;
     z-index: 2;
+    animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero-title {
@@ -76,9 +131,22 @@ nav a:hover:after, nav a.active:after {
     font-weight: 800;
     text-transform: uppercase;
     margin-bottom: 20px;
-    letter-spacing: 4px;
-    text-shadow: 0 0 15px rgba(140, 82, 255, 0.5);
+    letter-spacing: 5px;
+    text-shadow: 0 0 30px rgba(157, 92, 255, 0.8);
     line-height: 1.1;
+    position: relative;
+    display: inline-block;
+}
+
+.hero-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 2px;
+    background: var(--gradient-primary);
 }
 
 .hero-subtitle {
@@ -86,7 +154,7 @@ nav a:hover:after, nav a.active:after {
     margin-bottom: 40px;
     font-weight: 400;
     letter-spacing: 2px;
-    color: var(--muted-text);
+    color: var(--text-muted);
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -95,19 +163,19 @@ nav a:hover:after, nav a.active:after {
 .cta-button {
     display: inline-block;
     padding: 18px 50px;
-    background-color: var(--accent);
+    background: var(--gradient-cta);
     color: var(--text);
     text-transform: uppercase;
     font-weight: 700;
     font-size: 1.2rem;
     letter-spacing: 3px;
-    border-radius: 0;
+    border-radius: 4px;
     transition: all 0.4s ease;
     border: none;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(140, 82, 255, 0.5);
+    box-shadow: 0 10px 25px rgba(255, 62, 108, 0.4);
 }
 
 .cta-button:before {
@@ -117,26 +185,127 @@ nav a:hover:after, nav a.active:after {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2);
     transition: all 0.5s ease;
 }
 
 .cta-button:hover {
-    background-color: #7a3dff;
-    letter-spacing: 5px;
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(140, 82, 255, 0.6);
+    box-shadow: 0 15px 35px rgba(255, 62, 108, 0.5);
+    letter-spacing: 4px;
 }
 
 .cta-button:hover:before {
     left: 100%;
 }
 
+/* ---------- PRODUCTOS Y COLECCIONES ---------- */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-primary);
+}
+
+.collection-card, .product-card {
+    background-color: var(--medium-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.collection-card:hover, .product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.product-name {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.product-price {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.collection-info h3 {
+    color: var(--text);
+}
+
+.collection-info p {
+    color: var(--text-muted);
+}
+
+/* Product Tags y Badges */
+.product-tag, .product-badge {
+    background: var(--gradient-primary);
+    color: var(--text);
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.product-badge .product-stock {
+    color: white;
+}
+
+.add-to-cart-btn {
+    background: var(--gradient-cta);
+    color: var(--text);
+    border: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background: linear-gradient(135deg, #ff2a5d 0%, #ff7c5b 100%);
+    transform: translateY(-2px);
+}
+
+.quick-view-btn {
+    background-color: rgba(30, 30, 36, 0.9);
+    border: 1px solid var(--accent);
+    color: var(--text);
+}
+
+.quick-view-btn:hover {
+    background-color: rgba(40, 40, 46, 0.95);
+}
+
 /* ---------- FOOTER OSCURO ---------- */
 footer {
-    background-color: #050505;
-    padding: 40px 0 20px;
+    background-color: var(--darker-bg);
+    padding: 60px 0 20px;
     margin-top: 60px;
+    position: relative;
+}
+
+footer:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-primary);
 }
 
 .footer-inner {
@@ -153,13 +322,30 @@ footer {
 }
 
 .footer-links a {
-    color: #999999;
+    color: var(--text-subtle);
     transition: color 0.3s ease;
     font-size: 0.9rem;
+    position: relative;
+    padding-bottom: 3px;
 }
 
 .footer-links a:hover {
-    color: #8c52ff;
+    color: var(--accent);
+}
+
+.footer-links a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover:after {
+    width: 100%;
 }
 
 .social-links {
@@ -177,43 +363,87 @@ footer {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #e0e0e0;
+    background-color: var(--light-bg);
+    color: var(--text-muted);
     transition: all 0.3s ease;
 }
 
 .social-links a:hover {
-    background-color: #8c52ff;
+    background: var(--gradient-primary);
+    color: var(--text);
     transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(157, 92, 255, 0.3);
 }
 
 .footer-bottom {
     text-align: center;
     width: 100%;
     padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--border-color);
 }
 
 .footer-bottom p {
-    color: #777777;
+    color: var(--text-subtle);
     font-size: 0.8rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .footer-links {
-        justify-content: center;
-        width: 100%;
-        gap: 20px;
+/* ---------- FILTROS PARA COLECCIONES Y PRODUCTOS ---------- */
+.filter-button {
+    padding: 8px 20px;
+    background-color: var(--medium-bg);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: var(--light-bg);
+    color: var(--text);
+    border-color: var(--accent);
+}
+
+.filter-button.active {
+    background: var(--gradient-primary);
+    color: var(--text);
+    border-color: transparent;
+    box-shadow: 0 5px 15px rgba(157, 92, 255, 0.2);
+}
+
+/* ---------- NOTIFICACIONES ---------- */
+.notification {
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 
-@media (max-width: 576px) {
-    .footer-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
+.notification.success {
+    background: linear-gradient(135deg, #4cd964 0%, #2ecc71 100%);
+}
+
+.notification.info {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+.notification.error {
+    background: linear-gradient(135deg, #ff3b30 0%, #e62b20 100%);
+}
+
+.notification.warning {
+    background: linear-gradient(135deg, #ffcc00 0%, #ff9500 100%);
 }
 
 /* ---------- EFECTO DE PARTÍCULAS ---------- */
@@ -228,10 +458,11 @@ footer {
 
 .particle {
     position: absolute;
-    background-color: rgba(140, 82, 255, 0.5);
     border-radius: 50%;
     animation: float 15s infinite;
     opacity: 0;
+    background: linear-gradient(135deg, rgba(157, 92, 255, 0.6) 0%, rgba(255, 62, 108, 0.6) 100%);
+    filter: blur(3px);
 }
 
 @keyframes float {
@@ -240,10 +471,10 @@ footer {
         transform: translateY(0) rotate(0deg);
     }
     10% {
-        opacity: 0.1;
+        opacity: 0.2;
     }
     90% {
-        opacity: 0.1;
+        opacity: 0.2;
     }
     100% {
         opacity: 0;
@@ -251,7 +482,88 @@ footer {
     }
 }
 
+/* Animaciones generales */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animación sutil para elementos destacados */
+.highlight-pulse {
+    animation: pulse 2s infinite;
+}
+
+/* ---------- PARA DROPS Y COLECCIONES ESPECIALES ---------- */
+.drop-banner {
+    position: relative;
+    background: linear-gradient(to right, rgba(10, 10, 12, 0.8), rgba(12, 12, 20, 0.7)),
+                url('../assets/images/banners/drop-banner.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.drop-badge {
+    background: var(--gradient-cta);
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    box-shadow: 0 5px 15px rgba(255, 62, 108, 0.3);
+}
+
+.countdown-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.countdown-item {
+    background-color: var(--medium-bg);
+    border-radius: 8px;
+    padding: 15px 20px;
+    min-width: 80px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.countdown-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+}
+
+.countdown-label {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    display: block;
+}
+
 /* ---------- RESPONSIVE ---------- */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 4rem;
+    }
+}
+
 @media (max-width: 768px) {
     .hero-title {
         font-size: 3rem;
@@ -265,10 +577,43 @@ footer {
         padding: 15px 35px;
         font-size: 1rem;
     }
+    
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .countdown-number {
+        font-size: 1.8rem;
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+        padding: 10px;
+    }
 }
 
 @media (max-width: 576px) {
     .hero-title {
         font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+    }
+    
+    .social-links {
+        flex-wrap: wrap;
+    }
+    
+    .filter-button {
+        padding: 6px 15px;
+        font-size: 0.8rem;
     }
 }

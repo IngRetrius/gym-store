@@ -1,21 +1,27 @@
-/* dark-collections.css - Estilos para la página de drop */
+/* dark-collections.css - Estilos actualizados para la página de drop */
 
 /* ---------- VARIABLES ---------- */
 :root {
-    --dark-bg: #0a0a0a;
-    --darker-bg: #050505;
-    --accent: #8c52ff;
-    --text: #e0e0e0;
-    --muted-text: #999999;
-    --header-bg: rgba(10, 10, 10, 0.95);
-    --border-color: #333333;
+    --dark-bg: #121212;
+    --darker-bg: #0a0a0a;
+    --medium-bg: #1e1e24;
+    --light-bg: #2a2a30;
+    --accent: #9d5cff;
+    --accent-secondary: #ff3e6c;
+    --accent-hover: #b57bff;
+    --text: #ffffff;
+    --text-muted: #b0b0b0;
+    --text-subtle: #8a8a8a;
+    --border-color: #2d2d3a;
+    --gradient-primary: linear-gradient(135deg, #9d5cff 0%, #5c11ff 100%);
+    --gradient-cta: linear-gradient(135deg, #ff3e6c 0%, #ff8f6c 100%);
 }
 
 /* ---------- BANNER DEL DROP ---------- */
 .drop-banner {
     height: 85vh;
     width: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(5, 5, 5, 0.9)), url('../assets/images/banners/drop-banner.jpg');
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 14, 0.85)), url('../assets/images/banners/drop-banner.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -23,6 +29,27 @@
     justify-content: center;
     align-items: center;
     color: var(--text);
+    overflow: hidden;
+}
+
+.drop-banner:before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: -25%;
+    left: -25%;
+    background: radial-gradient(circle at center, rgba(157, 92, 255, 0.1) 0%, rgba(255, 62, 108, 0.05) 50%, transparent 70%);
+    animation: rotate 60s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .drop-content {
@@ -31,35 +58,64 @@
     padding: 0 20px;
     position: relative;
     z-index: 2;
+    animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .drop-number {
     display: inline-block;
-    background-color: var(--accent);
+    background: var(--gradient-primary);
     color: var(--text);
-    padding: 5px 15px;
+    padding: 8px 20px;
     font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 3px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    border-radius: 30px;
+    box-shadow: 0 10px 20px rgba(157, 92, 255, 0.3);
+    animation: pulse 2s infinite;
 }
 
 .drop-title {
-    font-size: 5rem;
+    font-size: 5.5rem;
     font-weight: 800;
-    letter-spacing: 10px;
-    margin-bottom: 20px;
+    letter-spacing: 12px;
+    margin-bottom: 25px;
     text-transform: uppercase;
-    text-shadow: 0 0 15px rgba(140, 82, 255, 0.5);
+    text-shadow: 0 0 30px rgba(157, 92, 255, 0.6);
+    position: relative;
+    display: inline-block;
+}
+
+.drop-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--gradient-primary);
 }
 
 .drop-description {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 40px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    color: var(--muted-text);
+    color: var(--text-muted);
+    line-height: 1.6;
 }
 
 .drop-meta {
@@ -67,25 +123,37 @@
     justify-content: center;
     margin-bottom: 40px;
     flex-wrap: wrap;
+    gap: 30px;
 }
 
 .drop-info {
-    margin: 0 20px;
-    text-align: center;
+    background-color: rgba(30, 30, 36, 0.5);
+    padding: 15px 25px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(157, 92, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.drop-info:hover {
+    transform: translateY(-5px);
+    border-color: rgba(157, 92, 255, 0.5);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .drop-label {
     display: block;
     font-size: 0.8rem;
-    color: var(--muted-text);
+    color: var(--text-muted);
     margin-bottom: 5px;
     letter-spacing: 2px;
 }
 
 .drop-value {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 1px;
+    color: var(--text);
 }
 
 /* ---------- CONTADOR DE TIEMPO ---------- */
@@ -100,67 +168,118 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 80px;
+    min-width: 90px;
+    background-color: var(--medium-bg);
+    padding: 15px 10px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown-item:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-primary);
+}
+
+.countdown-item:hover {
+    transform: translateY(-7px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(157, 92, 255, 0.2);
 }
 
 .countdown-number {
     font-size: 3rem;
     font-weight: 700;
-    color: var(--accent);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     line-height: 1;
     margin-bottom: 5px;
 }
 
 .countdown-label {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     letter-spacing: 2px;
-    color: var(--muted-text);
+    color: var(--text-muted);
+    text-transform: uppercase;
 }
 
 /* ---------- FILTROS DE DROP ---------- */
 .filter-section {
     padding: 40px 0;
+    position: relative;
+}
+
+.filter-section:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border-color), transparent);
 }
 
 .filter-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
     margin: 40px 0;
     padding: 20px;
-    background-color: rgba(10, 10, 10, 0.5);
+    background-color: var(--medium-bg);
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border-color);
 }
 
 .filter-button {
-    padding: 10px 25px;
-    background-color: rgba(20, 20, 20, 0.8);
-    color: #ffffff;
-    border: 1px solid #333333;
+    padding: 12px 25px;
+    background-color: var(--light-bg);
+    color: var(--text-muted);
+    border: none;
     border-radius: 30px;
     font-size: 0.9rem;
     letter-spacing: 2px;
-    font-weight: 600;
+    font-weight: 500;
     transition: all 0.3s ease;
     cursor: pointer;
-    margin: 0 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
 }
 
 .filter-button:hover {
-    background-color: rgba(140, 82, 255, 0.7);
-    border-color: #8c52ff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(140, 82, 255, 0.3);
+    color: var(--text);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.filter-button:hover:before {
+    left: 100%;
 }
 
 .filter-button.active {
-    background-color: #8c52ff;
-    border-color: #8c52ff;
-    color: #ffffff;
-    box-shadow: 0 4px 8px rgba(140, 82, 255, 0.5);
+    background: var(--gradient-primary);
+    color: var(--text);
+    box-shadow: 0 5px 15px rgba(157, 92, 255, 0.3);
 }
 
 /* ---------- PRODUCTOS DEL DROP ---------- */
@@ -170,26 +289,65 @@
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
 }
 
 .product-card {
-    background-color: var(--darker-bg);
+    background-color: var(--medium-bg);
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     position: relative;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    animation: fadeIn 0.6s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.product-card:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.product-card:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .product-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border-color: var(--accent);
 }
 
 .product-image {
     position: relative;
     height: 350px;
     overflow: hidden;
+}
+
+.product-image:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(30, 30, 36, 0.5), transparent 50%);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-image:before {
+    opacity: 1;
 }
 
 .product-image img {
@@ -200,7 +358,7 @@
 }
 
 .product-card:hover .product-image img {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .product-actions {
@@ -210,8 +368,9 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     opacity: 0;
+    z-index: 2;
 }
 
 .product-card:hover .product-actions {
@@ -223,49 +382,54 @@
     width: 100%;
     padding: 15px;
     border: none;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     letter-spacing: 2px;
     transition: all 0.3s ease;
     cursor: pointer;
     text-align: center;
+    font-weight: 600;
 }
 
 .quick-view-btn {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(30, 30, 36, 0.9);
     color: var(--text);
+    backdrop-filter: blur(5px);
 }
 
 .quick-view-btn:hover {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: var(--light-bg);
 }
 
 .add-to-cart-btn {
-    background-color: var(--accent);
+    background: var(--gradient-cta);
     color: var(--text);
 }
 
 .add-to-cart-btn:hover {
-    background-color: #7a3dff;
+    background: linear-gradient(135deg, #ff2a5d 0%, #ff7c5b 100%);
 }
 
 .product-badge {
     position: absolute;
     top: 15px;
     right: 15px;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 5px 10px;
-    border-radius: 3px;
+    background: var(--gradient-primary);
+    padding: 8px 15px;
+    border-radius: 30px;
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .product-stock {
-    color: var(--accent);
-    font-size: 0.7rem;
+    color: var(--text);
+    font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 1px;
 }
 
 .product-info {
     padding: 20px;
+    position: relative;
 }
 
 .product-name {
@@ -273,157 +437,172 @@
     font-weight: 600;
     margin-bottom: 10px;
     color: var(--text);
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .product-name {
+    color: var(--accent);
 }
 
 .product-price {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--accent);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* ---------- HISTORIA DEL DROP ---------- */
 .drop-story {
     padding: 100px 0;
     background-color: var(--darker-bg);
+    position: relative;
+}
+
+.drop-story:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-primary);
 }
 
 .story-content {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .story-content h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 30px;
     letter-spacing: 3px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.story-content h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-primary);
 }
 
 .story-content p {
     font-size: 1.1rem;
     line-height: 1.8;
-    margin-bottom: 20px;
-    color: var(--muted-text);
+    margin-bottom: 25px;
+    color: var(--text-muted);
 }
 
 .story-quote {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-style: italic;
-    margin: 40px auto;
-    padding: 20px;
-    border-top: 1px solid rgba(140, 82, 255, 0.3);
-    border-bottom: 1px solid rgba(140, 82, 255, 0.3);
-    color: var(--accent);
-    max-width: 80%;
-}
-
-.story-features {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 60px;
-}
-
-.story-feature {
-    flex: 1;
-    min-width: 200px;
-    max-width: 250px;
-    text-align: center;
-}
-
-.story-feature i {
-    font-size: 2.5rem;
-    color: var(--accent);
-    margin-bottom: 20px;
-}
-
-.story-feature h3 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-}
-
-.story-feature p {
-    font-size: 0.9rem;
-    color: var(--muted-text);
-}
-
-/* ---------- PRÓXIMO DROP ---------- */
-.next-drop {
-    padding: 80px 0;
-    background: url('../assets/images/drops/nebula-teaser.jpg') center center;
-    background-size: cover;
+    margin: 50px auto;
+    padding: 30px 40px;
+    border: none;
+    color: var(--text);
+    max-width: 90%;
     position: relative;
+    background-color: var(--medium-bg);
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.story-quote:before, .story-quote:after {
+    content: '"';
+    position: absolute;
+    font-size: 5rem;
+    color: var(--accent);
+    opacity: 0.2;
+    line-height: 0;
+}
+
+.story-quote:before {
+    top: 30px;
+    left: 10px;
+}
+
+.story-quote:after {
+    bottom: 0;
+    right: 10px;
+    transform: rotate(180deg);
+}
+
+/* ---------- PRÓXIMO DROP TEASER ---------- */
+.next-drop-teaser {
+    padding: 80px 0;
+    background: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)), url('../assets/images/drops/next-drop-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+    position: relative;
+}
+
+.next-drop-teaser h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
     color: var(--text);
 }
 
-.next-drop-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.7));
-    z-index: 1;
-}
-
-.next-drop-content {
-    position: relative;
-    z-index: 2;
-    max-width: 500px;
-}
-
-.next-drop-label {
-    display: inline-block;
-    border: 1px solid var(--accent);
-    padding: 5px 15px;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-}
-
-.next-drop-title {
-    font-size: 3rem;
-    font-weight: 800;
-    letter-spacing: 5px;
-    margin-bottom: 20px;
-}
-
-.next-drop-description {
+.next-drop-teaser p {
     font-size: 1.1rem;
-    margin-bottom: 20px;
-    color: var(--muted-text);
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 40px;
 }
 
-.next-drop-date {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 30px;
-    color: var(--accent);
+.notify-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
 }
 
-.notify-btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: transparent;
-    border: 2px solid var(--accent);
-    color: var(--accent);
+.notify-form input {
+    flex-grow: 1;
+    padding: 15px 20px;
+    border: 1px solid var(--border-color);
+    background-color: var(--medium-bg);
+    color: var(--text);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.notify-form button {
+    padding: 15px 30px;
+    background: var(--gradient-cta);
+    color: var(--text);
+    border: none;
+    border-radius: 4px;
     font-size: 0.9rem;
     font-weight: 600;
-    letter-spacing: 2px;
-    transition: all 0.3s ease;
+    letter-spacing: 1px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.notify-btn:hover {
-    background-color: var(--accent);
-    color: var(--text);
+.notify-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 62, 108, 0.3);
 }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 992px) {
     .drop-title {
         font-size: 4rem;
+        letter-spacing: 8px;
     }
     
     .countdown-number {
@@ -431,21 +610,17 @@
     }
     
     .products-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     }
     
     .product-image {
         height: 300px;
     }
-    
-    .next-drop-title {
-        font-size: 2.5rem;
-    }
 }
 
 @media (max-width: 768px) {
     .drop-banner {
-        height: 70vh;
+        height: 80vh;
     }
     
     .drop-title {
@@ -462,7 +637,8 @@
     }
     
     .countdown-item {
-        min-width: 60px;
+        min-width: 70px;
+        padding: 10px;
     }
     
     .countdown-number {
@@ -470,7 +646,7 @@
     }
     
     .filter-button {
-        padding: 8px 15px;
+        padding: 10px 20px;
         font-size: 0.8rem;
     }
     
@@ -481,9 +657,26 @@
     .product-image {
         height: 250px;
     }
+    
+    .story-quote {
+        font-size: 1.3rem;
+        padding: 25px 30px;
+    }
+    
+    .notify-form {
+        flex-direction: column;
+    }
+    
+    .notify-form button {
+        width: 100%;
+    }
 }
 
 @media (max-width: 576px) {
+    .drop-banner {
+        height: 70vh;
+    }
+    
     .drop-title {
         font-size: 2.5rem;
         letter-spacing: 5px;
@@ -493,8 +686,13 @@
         font-size: 0.9rem;
     }
     
+    .drop-info {
+        padding: 10px 15px;
+    }
+    
     .countdown-item {
-        min-width: 50px;
+        min-width: 60px;
+        padding: 8px;
     }
     
     .countdown-number {
@@ -508,7 +706,7 @@
     }
     
     .filter-button {
-        padding: 8px 12px;
+        padding: 8px 15px;
         font-size: 0.75rem;
         white-space: nowrap;
     }
@@ -519,5 +717,22 @@
     
     .product-image {
         height: 200px;
+    }
+    
+    .story-content h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Animaciones adicionales */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
     }
 }
