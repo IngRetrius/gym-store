@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Ropa de Gimnasio | El Templo del Oversize</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/dark-temple.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-inner container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo/logo.svg" alt="Logo de la tienda" onerror="this.src='assets/images/logo/logo-placeholder.png'; this.onerror=null;">
+                </a>
+            </div>
+            
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="collections/index.html">Drop</a></li>
+                    <li><a href="pages/about.html">Nosotros</a></li>
+                    <li><a href="pages/contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <div class="cart-icon">
+                <span class="cart-count">0</span>
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero estilo templo oscuro a pantalla completa -->
+        <section class="hero-temple">
+            <div class="particles" id="particles"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">EL TEMPLO<br>DEL OVERSIZE</h1>
+                <p class="hero-subtitle">Ropa que trasciende límites. Diseño para quienes viven sin restricciones.</p>
+                <a href="collections/index.html" class="cta-button">ENTRAR AL SANTUARIO</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner container">
+            <!-- Enlaces y redes sociales en una sola línea -->
+            <div class="footer-top">
+                <!-- Enlaces esenciales -->
+                <div class="footer-links">
+                    <a href="pages/about.html">Nuestra historia</a>
+                    <a href="pages/contact.html">Contacto</a>
+                    <a href="pages/terms.html">Términos y condiciones</a>
+                    <a href="pages/privacy.html">Política de privacidad</a>
+                </div>
+                
+                <!-- Redes sociales -->
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <!-- Línea divisoria -->
+            <div class="footer-divider"></div>
+            
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 El Templo del Oversize. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Carrito de compras (inicialmente oculto) -->
+    <div class="cart-container" id="cart-container">
+        <div class="cart-header">
+            <h3>Tu carrito</h3>
+            <button id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <div class="cart-items" id="cart-items">
+            <!-- Los productos del carrito se generarán dinámicamente con JavaScript -->
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Envío</span>
+                    <span>Calculado al finalizar</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+            </div>
+            <button id="checkout-whatsapp" class="checkout-btn">
+                <i class="fab fa-whatsapp"></i>
+                Comprar por WhatsApp
+            </button>
+        </div>
+    </div>
+    
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/whatsapp-redirect.js"></script>
+    
+    <script>
+        // Script para crear efecto de partículas
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            const particlesCount = 15;
+            
+            for (let i = 0; i < particlesCount; i++) {
+                createParticle();
+            }
+            
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Tamaño aleatorio
+                const size = Math.random() * 50 + 10;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Posición aleatoria
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                particle.style.left = `${posX}%`;
+                particle.style.bottom = `${-20}%`;
+                
+                // Opacidad y duración aleatorias
+                const duration = Math.random() * 10 + 10;
+                particle.style.animation = `float ${duration}s infinite`;
+                particle.style.animationDelay = `${Math.random() * 10}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        });
+    </script>
+</body>
+</html>

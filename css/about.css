@@ -1,0 +1,499 @@
+/* about.css - Estilos para la página Nosotros tipo blog */
+
+/* Variables específicas para about */
+:root {
+    --blog-bg: #0a0a0a;
+    --blog-text: #e0e0e0;
+    --blog-muted: #999999;
+    --blog-accent: #8c52ff;
+    --blog-dark: #050505;
+    --blog-card: #111111;
+    --blog-border: #333333;
+    --blog-highlight: rgba(140, 82, 255, 0.1);
+}
+
+/* ---------- BANNER DE NOSOTROS ---------- */
+.about-banner {
+    height: 40vh;
+    background: linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.9)), url('../assets/images/about/about-banner.jpg') center center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--blog-text);
+    position: relative;
+}
+
+.about-banner:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to bottom, transparent, var(--blog-bg));
+}
+
+.about-banner-content {
+    z-index: 2;
+}
+
+.about-banner h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: 5px;
+    text-shadow: 0 0 15px rgba(140, 82, 255, 0.5);
+}
+
+.about-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ---------- ESTRUCTURA DEL BLOG ---------- */
+.about-main {
+    background-color: var(--blog-bg);
+    color: var(--blog-text);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 50px;
+    padding: 80px 20px;
+}
+
+.blog-article {
+    position: relative;
+}
+
+.article-meta {
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--blog-border);
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--blog-muted);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.article-section {
+    margin-bottom: 60px;
+}
+
+.article-section h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.article-section h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--blog-accent);
+}
+
+.article-section p {
+    margin-bottom: 25px;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: var(--blog-muted);
+}
+
+.article-section p strong {
+    color: var(--blog-text);
+}
+
+.article-image {
+    margin: 30px 0;
+    position: relative;
+}
+
+.article-image img {
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: rgba(5, 5, 5, 0.7);
+    padding: 8px 15px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    color: var(--blog-muted);
+}
+
+/* ---------- FILOSOFÍA PILARES ---------- */
+.philosophy-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.pillar {
+    background-color: var(--blog-card);
+    border-radius: 5px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pillar:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.pillar-icon {
+    font-size: 2.5rem;
+    color: var(--blog-accent);
+    margin-bottom: 20px;
+}
+
+.pillar h3 {
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.pillar p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--blog-muted);
+}
+
+/* ---------- CITA DESTACADA ---------- */
+.article-quote {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    padding: 40px 60px;
+    border-left: 5px solid var(--blog-accent);
+    margin: 50px 0;
+    background-color: var(--blog-highlight);
+    position: relative;
+    font-style: italic;
+    color: var(--blog-text);
+}
+
+.article-quote:before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 5rem;
+    color: var(--blog-accent);
+    opacity: 0.2;
+    line-height: 1;
+    font-family: serif;
+}
+
+/* ---------- CARACTERÍSTICAS DE DROP ---------- */
+.drop-features {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.drop-features li {
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+    color: var(--blog-muted);
+    line-height: 1.6;
+}
+
+.drop-features li:before {
+    content: '⬥';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--blog-accent);
+    font-size: 1.2rem;
+}
+
+.feature-highlight {
+    color: var(--blog-text);
+    font-weight: 600;
+}
+
+/* ---------- SOSTENIBILIDAD ---------- */
+.sustainability-commitment {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.commitment-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--blog-card);
+    border-radius: 5px;
+}
+
+.commitment-item i {
+    font-size: 1.8rem;
+    color: var(--blog-accent);
+    margin-right: 15px;
+}
+
+.commitment-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ---------- PLANES FUTUROS ---------- */
+.future-plans {
+    margin: 30px 0;
+}
+
+.plan-item {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--blog-border);
+}
+
+.plan-item:last-child {
+    border-bottom: none;
+}
+
+.plan-item h4 {
+    color: var(--blog-accent);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.plan-item p {
+    margin: 0;
+    color: var(--blog-muted);
+}
+
+/* ---------- CONCLUSIÓN ---------- */
+.article-conclusion {
+    margin-top: 50px;
+    padding-top: 50px;
+    border-top: 1px solid var(--blog-border);
+    text-align: center;
+}
+
+.article-conclusion p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: var(--blog-muted);
+}
+
+.article-conclusion .cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: var(--blog-accent);
+    color: var(--blog-text);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.article-conclusion .cta-button:hover {
+    background-color: #7a3dff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------- SIDEBAR ---------- */
+.blog-sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+}
+
+.sidebar-section {
+    background-color: var(--blog-card);
+    border-radius: 5px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.sidebar-section h3 {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--blog-border);
+}
+
+.past-drops {
+    list-style: none;
+    padding: 0;
+}
+
+.past-drops li {
+    margin-bottom: 15px;
+}
+
+.past-drops a {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: var(--blog-dark);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.past-drops a:hover {
+    background-color: var(--blog-highlight);
+}
+
+.drop-name {
+    font-weight: 600;
+    color: var(--blog-text);
+}
+
+.drop-date {
+    font-size: 0.8rem;
+    color: var(--blog-muted);
+}
+
+.team-member {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.team-member:last-child {
+    margin-bottom: 0;
+}
+
+.member-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 15px;
+    border: 3px solid var(--blog-accent);
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-member h4 {
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.team-member p {
+    color: var(--blog-muted);
+    font-size: 0.9rem;
+}
+
+.sidebar-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.sidebar-social a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--blog-dark);
+    color: var(--blog-text);
+    transition: all 0.3s ease;
+}
+
+.sidebar-social a:hover {
+    background-color: var(--blog-accent);
+    transform: translateY(-3px);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 992px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    
+    .blog-sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .philosophy-pillars {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-banner h1 {
+        font-size: 2.5rem;
+    }
+    
+    .article-quote {
+        font-size: 1.2rem;
+        padding: 30px 40px;
+    }
+    
+    .philosophy-pillars {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .sustainability-commitment {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog-sidebar {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-banner {
+        height: 30vh;
+    }
+    
+    .about-banner h1 {
+        font-size: 2rem;
+    }
+    
+    .about-subtitle {
+        font-size: 1rem;
+    }
+    
+    .article-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .article-quote {
+        font-size: 1.1rem;
+        padding: 25px 30px;
+    }
+    
+    .article-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

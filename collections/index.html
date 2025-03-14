@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DROP ACTUAL | El Templo del Oversize</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/collections.css">
+    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/dark-temple.css">
+    <link rel="stylesheet" href="../css/dark-collections.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-inner container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../assets/images/logo/logo.svg" alt="Logo de la tienda" onerror="this.src='../assets/images/logo/logo-placeholder.png'; this.onerror=null;">
+                </a>
+            </div>
+            
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="index.html" class="active">Drop</a></li>
+                    <li><a href="../pages/about.html">Nosotros</a></li>
+                    <li><a href="../pages/contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <div class="cart-icon">
+                <span class="cart-count">0</span>
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Banner del Drop actual -->
+        <section class="drop-banner">
+            <div class="drop-content">
+                <div class="drop-number">DROP 001</div>
+                <h1 class="drop-title">ECLIPSE</h1>
+                <p class="drop-description">Nuestra primera colección limitada. Inspirada en la dualidad entre luz y oscuridad.</p>
+                
+                <div class="drop-meta">
+                    <div class="drop-info">
+                        <span class="drop-label">LANZAMIENTO</span>
+                        <span class="drop-value">15.03.2025</span>
+                    </div>
+                    <div class="drop-info">
+                        <span class="drop-label">DISPONIBILIDAD</span>
+                        <span class="drop-value">72 HORAS</span>
+                    </div>
+                    <div class="drop-info">
+                        <span class="drop-label">PIEZAS</span>
+                        <span class="drop-value">LIMITADO 100 UNIDADES</span>
+                    </div>
+                </div>
+                
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-days">00</span>
+                        <span class="countdown-label">DÍAS</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-hours">00</span>
+                        <span class="countdown-label">HORAS</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-minutes">00</span>
+                        <span class="countdown-label">MINUTOS</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-seconds">00</span>
+                        <span class="countdown-label">SEGUNDOS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Filtros de productos -->
+        <section class="filter-section">
+            <div class="container">
+                <div class="filter-container">
+                    <button class="filter-button active" data-filter="all">TODOS</button>
+                    <button class="filter-button" data-filter="tops">TOPS</button>
+                    <button class="filter-button" data-filter="outerwear">OUTERWEAR</button>
+                    <button class="filter-button" data-filter="bottoms">BOTTOMS</button>
+                    <button class="filter-button" data-filter="accessories">ACCESORIOS</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Productos del Drop -->
+        <section class="drop-products container">
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <div class="product-card" data-category="tops">
+                    <div class="product-image">
+                        <img src="../assets/images/products/eclipse-tshirt.jpg" alt="Eclipse Oversized Tee" onerror="this.src='../assets/images/products/placeholder.jpg'; this.onerror=null;">
+                        <div class="product-actions">
+                            <button class="quick-view-btn" data-product-id="eclipse-1">VISTA RÁPIDA</button>
+                            <button class="add-to-cart-btn" data-product-id="eclipse-1">AÑADIR AL CARRITO</button>
+                        </div>
+                        <div class="product-badge">
+                            <span class="product-stock">STOCK: 47/100</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Eclipse Oversized Tee</h3>
+                        <div class="product-price">$499.00</div>
+                    </div>
+                </div>
+                
+                <!-- Producto 2 -->
+                <div class="product-card" data-category="outerwear">
+                    <div class="product-image">
+                        <img src="../assets/images/products/eclipse-hoodie.jpg" alt="Eclipse Pullover Hoodie" onerror="this.src='../assets/images/products/placeholder.jpg'; this.onerror=null;">
+                        <div class="product-actions">
+                            <button class="quick-view-btn" data-product-id="eclipse-2">VISTA RÁPIDA</button>
+                            <button class="add-to-cart-btn" data-product-id="eclipse-2">AÑADIR AL CARRITO</button>
+                        </div>
+                        <div class="product-badge">
+                            <span class="product-stock">STOCK: 31/100</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Eclipse Pullover Hoodie</h3>
+                        <div class="product-price">$799.00</div>
+                    </div>
+                </div>
+                
+                <!-- Producto 3 -->
+                <div class="product-card" data-category="bottoms">
+                    <div class="product-image">
+                        <img src="../assets/images/products/eclipse-joggers.jpg" alt="Eclipse Cargo Joggers" onerror="this.src='../assets/images/products/placeholder.jpg'; this.onerror=null;">
+                        <div class="product-actions">
+                            <button class="quick-view-btn" data-product-id="eclipse-3">VISTA RÁPIDA</button>
+                            <button class="add-to-cart-btn" data-product-id="eclipse-3">AÑADIR AL CARRITO</button>
+                        </div>
+                        <div class="product-badge">
+                            <span class="product-stock">STOCK: 28/100</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Eclipse Cargo Joggers</h3>
+                        <div class="product-price">$649.00</div>
+                    </div>
+                </div>
+                
+                <!-- Producto 4 -->
+                <div class="product-card" data-category="accessories">
+                    <div class="product-image">
+                        <img src="../assets/images/products/eclipse-cap.jpg" alt="Eclipse Tech Cap" onerror="this.src='../assets/images/products/placeholder.jpg'; this.onerror=null;">
+                        <div class="product-actions">
+                            <button class="quick-view-btn" data-product-id="eclipse-4">VISTA RÁPIDA</button>
+                            <button class="add-to-cart-btn" data-product-id="eclipse-4">AÑADIR AL CARRITO</button>
+                        </div>
+                        <div class="product-badge">
+                            <span class="product-stock">STOCK: 15/100</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Eclipse Tech Cap</h3>
+                        <div class="product-price">$349.00</div>
+                    </div>
+                </div>
+                
+                <!-- Producto 5 -->
+                <div class="product-card" data-category="tops">
+                    <div class="product-image">
+                        <img src="../assets/images/products/eclipse-longsleeve.jpg" alt="Eclipse Long Sleeve Tee" onerror="this.src='../assets/images/products/placeholder.jpg'; this.onerror=null;">
+                        <div class="product-actions">
+                            <button class="quick-view-btn" data-product-id="eclipse-5">VISTA RÁPIDA</button>
+                            <button class="add-to-cart-btn" data-product-id="eclipse-5">AÑADIR AL CARRITO</button>
+                        </div>
+                        <div class="product-badge">
+                            <span class="product-stock">STOCK: 22/100</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Eclipse Long Sleeve Tee</h3>
+                        <div class="product-price">$549.00</div>
+                    </div>
+                </div>
+                
+                <!-- Producto 6 -->
+                <div class="product-card" data-category="outerwear">
+                    <div class="product-image">
+                        <img src="../assets/images/products/eclipse-jacket.jpg" alt="Eclipse Technical Jacket" onerror="this.src='../assets/images/products/placeholder.jpg'; this.onerror=null;">
+                        <div class="product-actions">
+                            <button class="quick-view-btn" data-product-id="eclipse-6">VISTA RÁPIDA</button>
+                            <button class="add-to-cart-btn" data-product-id="eclipse-6">AÑADIR AL CARRITO</button>
+                        </div>
+                        <div class="product-badge">
+                            <span class="product-stock">STOCK: 10/100</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Eclipse Technical Jacket</h3>
+                        <div class="product-price">$1,199.00</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Historia del Drop -->
+        <section class="drop-story">
+            <div class="container">
+                <div class="story-content">
+                    <h2>LA HISTORIA DETRÁS DEL DROP</h2>
+                    <p>Eclipse nació como una exploración de los contrastes entre luz y oscuridad. Cada pieza representa el momento exacto en que el día se encuentra con la noche, simbolizando la dualidad que todos llevamos dentro.</p>
+                    <p>Las telas técnicas y los cortes oversized permiten libertad de movimiento mientras mantienes un estilo único. Cada prenda está numerada y limitada a 100 unidades, asegurando la exclusividad de tu pieza.</p>
+                    
+                    <div class="story-quote">
+                        "El diseño no es solo lo que ves, sino lo que sientes"
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner container">
+            <div class="footer-column">
+                <h3>Acerca de</h3>
+                <div class="footer-links">
+                    <a href="../pages/about.html">Nuestra historia</a>
+                    <a href="../pages/contact.html">Contacto</a>
+                    <a href="../pages/terms.html">Términos y condiciones</a>
+                    <a href="../pages/terms.html#privacy">Política de privacidad</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Ayuda</h3>
+                <div class="footer-links">
+                    <a href="../pages/faq.html">Preguntas frecuentes</a>
+                    <a href="../pages/shipping.html">Envíos y entregas</a>
+                    <a href="../pages/returns.html">Devoluciones</a>
+                    <a href="../pages/size-guide.html">Guía de tallas</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Síguenos</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p>Suscríbete para recibir novedades sobre los próximos lanzamientos</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Tu correo electrónico">
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom container">
+            <p>&copy; 2025 El Templo del Oversize. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Carrito de compras (inicialmente oculto) -->
+    <div class="cart-container" id="cart-container">
+        <div class="cart-header">
+            <h3>Tu carrito</h3>
+            <button id="close-cart">×</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Los productos del carrito se mostrarán aquí dinámicamente -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+            <button id="checkout-whatsapp" class="checkout-btn">Comprar por WhatsApp</button>
+        </div>
+    </div>
+    
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/whatsapp-redirect.js"></script>
+    <script src="collections.js"></script>
+    <script>
+        // Script para la cuenta regresiva
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fecha objetivo: 15 de marzo de 2025
+            const targetDate = new Date('2025-03-15T00:00:00').getTime();
+            
+            // Actualizar la cuenta regresiva cada segundo
+            const countdown = setInterval(function() {
+                // Obtener fecha y hora actuales
+                const now = new Date().getTime();
+                
+                // Calcular la distancia entre ahora y la fecha objetivo
+                const distance = targetDate - now;
+                
+                // Cálculos de tiempo
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Mostrar el resultado
+                document.getElementById('countdown-days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+                
+                // Si la cuenta regresiva termina
+                if (distance < 0) {
+                    clearInterval(countdown);
+                    document.getElementById('countdown-days').textContent = '00';
+                    document.getElementById('countdown-hours').textContent = '00';
+                    document.getElementById('countdown-minutes').textContent = '00';
+                    document.getElementById('countdown-seconds').textContent = '00';
+                }
+            }, 1000);
+            
+            // Agregar eventos para los botones de filtro
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remover clase active de todos los botones
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Añadir clase active al botón seleccionado
+                    this.classList.add('active');
+                    
+                    // Obtener el filtro
+                    const filter = this.dataset.filter;
+                    
+                    // Filtrar productos
+                    productCards.forEach(card => {
+                        if (filter === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            if (card.dataset.category === filter) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

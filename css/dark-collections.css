@@ -1,0 +1,523 @@
+/* dark-collections.css - Estilos para la página de drop */
+
+/* ---------- VARIABLES ---------- */
+:root {
+    --dark-bg: #0a0a0a;
+    --darker-bg: #050505;
+    --accent: #8c52ff;
+    --text: #e0e0e0;
+    --muted-text: #999999;
+    --header-bg: rgba(10, 10, 10, 0.95);
+    --border-color: #333333;
+}
+
+/* ---------- BANNER DEL DROP ---------- */
+.drop-banner {
+    height: 85vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(5, 5, 5, 0.9)), url('../assets/images/banners/drop-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text);
+}
+
+.drop-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.drop-number {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--text);
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.drop-title {
+    font-size: 5rem;
+    font-weight: 800;
+    letter-spacing: 10px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(140, 82, 255, 0.5);
+}
+
+.drop-description {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--muted-text);
+}
+
+.drop-meta {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.drop-info {
+    margin: 0 20px;
+    text-align: center;
+}
+
+.drop-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--muted-text);
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.drop-value {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* ---------- CONTADOR DE TIEMPO ---------- */
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.countdown-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.countdown-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--muted-text);
+}
+
+/* ---------- FILTROS DE DROP ---------- */
+.filter-section {
+    padding: 40px 0;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 40px 0;
+    padding: 20px;
+    background-color: rgba(10, 10, 10, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.filter-button {
+    padding: 10px 25px;
+    background-color: rgba(20, 20, 20, 0.8);
+    color: #ffffff;
+    border: 1px solid #333333;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 0 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.filter-button:hover {
+    background-color: rgba(140, 82, 255, 0.7);
+    border-color: #8c52ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(140, 82, 255, 0.3);
+}
+
+.filter-button.active {
+    background-color: #8c52ff;
+    border-color: #8c52ff;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(140, 82, 255, 0.5);
+}
+
+/* ---------- PRODUCTOS DEL DROP ---------- */
+.drop-products {
+    padding-bottom: 80px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: var(--darker-bg);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-actions {
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.product-card:hover .product-actions {
+    bottom: 0;
+    opacity: 1;
+}
+
+.quick-view-btn, .add-to-cart-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.quick-view-btn {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--text);
+}
+
+.quick-view-btn:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.add-to-cart-btn {
+    background-color: var(--accent);
+    color: var(--text);
+}
+
+.add-to-cart-btn:hover {
+    background-color: #7a3dff;
+}
+
+.product-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.product-stock {
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text);
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+/* ---------- HISTORIA DEL DROP ---------- */
+.drop-story {
+    padding: 100px 0;
+    background-color: var(--darker-bg);
+}
+
+.story-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.story-content h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+}
+
+.story-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: var(--muted-text);
+}
+
+.story-quote {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 40px auto;
+    padding: 20px;
+    border-top: 1px solid rgba(140, 82, 255, 0.3);
+    border-bottom: 1px solid rgba(140, 82, 255, 0.3);
+    color: var(--accent);
+    max-width: 80%;
+}
+
+.story-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.story-feature {
+    flex: 1;
+    min-width: 200px;
+    max-width: 250px;
+    text-align: center;
+}
+
+.story-feature i {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.story-feature h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.story-feature p {
+    font-size: 0.9rem;
+    color: var(--muted-text);
+}
+
+/* ---------- PRÓXIMO DROP ---------- */
+.next-drop {
+    padding: 80px 0;
+    background: url('../assets/images/drops/nebula-teaser.jpg') center center;
+    background-size: cover;
+    position: relative;
+    color: var(--text);
+}
+
+.next-drop-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.7));
+    z-index: 1;
+}
+
+.next-drop-content {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+}
+
+.next-drop-label {
+    display: inline-block;
+    border: 1px solid var(--accent);
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.next-drop-title {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.next-drop-description {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--muted-text);
+}
+
+.next-drop-date {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--accent);
+}
+
+.notify-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.notify-btn:hover {
+    background-color: var(--accent);
+    color: var(--text);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 992px) {
+    .drop-title {
+        font-size: 4rem;
+    }
+    
+    .countdown-number {
+        font-size: 2.5rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .product-image {
+        height: 300px;
+    }
+    
+    .next-drop-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .drop-banner {
+        height: 70vh;
+    }
+    
+    .drop-title {
+        font-size: 3rem;
+        letter-spacing: 6px;
+    }
+    
+    .drop-description {
+        font-size: 1rem;
+    }
+    
+    .countdown-container {
+        gap: 15px;
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+    }
+    
+    .countdown-number {
+        font-size: 2rem;
+    }
+    
+    .filter-button {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .product-image {
+        height: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .drop-title {
+        font-size: 2.5rem;
+        letter-spacing: 5px;
+    }
+    
+    .drop-description {
+        font-size: 0.9rem;
+    }
+    
+    .countdown-item {
+        min-width: 50px;
+    }
+    
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+    
+    .filter-container {
+        padding: 15px 10px;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+    
+    .filter-button {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        white-space: nowrap;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+    
+    .product-image {
+        height: 200px;
+    }
+}
