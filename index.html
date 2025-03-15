@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Ropa Oversize | GymTay</title>
+    <title>GymTay | Ropa Oversize que Trasciende</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/cart.css">
-    <link rel="stylesheet" href="css/dark-temple.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="css/colombia-minimal.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
-    <header>
+<body class="dark-theme">
+    <div class="bg-circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+    </div>
+
+    <header class="modern-header">
         <div class="header-inner container">
             <div class="logo">
                 <a href="index.html">
@@ -42,22 +48,47 @@
     </header>
 
     <main>
-        <!-- Hero estilo templo oscuro a pantalla completa -->
-        <section class="hero-temple">
-            <div class="particles" id="particles"></div>
-            <div class="hero-content">
-                <h1 class="hero-title">GYMTAY</h1>
-                <p class="hero-subtitle">Ropa que trasciende límites. Diseño oversize para quienes viven sin restricciones.</p>
-                <a href="collections/index.html" class="cta-button">DESCUBRIR DROPS</a>
+        <!-- Hero moderno a pantalla completa -->
+        <section class="hero-fullscreen">
+            <div class="hero-content-wrapper">
+                <div class="hero-content">
+                    <h1 class="hero-title">DISEÑO<br>SIN LÍMITES</h1>
+                    <p class="hero-subtitle">Ropa que trasciende limitaciones. Diseño oversize para quienes viven sin restricciones.</p>
+                    <a href="collections/index.html" class="cta-button colombia-gradient">DESCUBRIR DROPS</a>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/images/banners/indio.png" alt="Indio" onerror="this.src='assets/images/banners/dark-temple-bg.jpg'; this.onerror=null;">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección de valores de marca -->
+        <section class="brand-values">
+            <div class="container">
+                <div class="values-grid">
+                    <div class="value-item value-yellow">
+                        <div class="value-accent"></div>
+                        <h3>LIBERTAD</h3>
+                        <p>Prendas que te permiten moverte sin restricciones, física y estéticamente.</p>
+                    </div>
+                    <div class="value-item value-blue">
+                        <div class="value-accent"></div>
+                        <h3>EXCLUSIVIDAD</h3>
+                        <p>Cada drop es limitado y numerado, garantizando que tu pieza sea verdaderamente única.</p>
+                    </div>
+                    <div class="value-item value-red">
+                        <div class="value-accent"></div>
+                        <h3>CALIDAD</h3>
+                        <p>Utilizamos solo materiales premium que mantienen su forma y durabilidad.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="modern-footer">
         <div class="footer-inner container">
-            <!-- Enlaces y redes sociales en una sola línea -->
             <div class="footer-top">
-                <!-- Enlaces esenciales -->
                 <div class="footer-links">
                     <a href="pages/about.html">Nuestra historia</a>
                     <a href="pages/contact.html">Contacto</a>
@@ -65,7 +96,6 @@
                     <a href="pages/privacy.html">Política de privacidad</a>
                 </div>
                 
-                <!-- Redes sociales -->
                 <div class="social-links">
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
@@ -74,10 +104,8 @@
                 </div>
             </div>
             
-            <!-- Línea divisoria -->
             <div class="footer-divider"></div>
             
-            <!-- Copyright -->
             <div class="footer-bottom">
                 <p>&copy; 2025 GymTay. Todos los derechos reservados.</p>
             </div>
@@ -110,7 +138,7 @@
                     <span id="cart-total">$0.00</span>
                 </div>
             </div>
-            <button id="checkout-whatsapp" class="checkout-btn">
+            <button id="checkout-whatsapp" class="checkout-btn colombia-gradient">
                 <i class="fab fa-whatsapp"></i>
                 Comprar por WhatsApp
             </button>
@@ -122,40 +150,6 @@
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/whatsapp-redirect.js"></script>
-    
-    <script>
-        // Script para crear efecto de partículas
-        document.addEventListener('DOMContentLoaded', function() {
-            const particlesContainer = document.getElementById('particles');
-            const particlesCount = 15;
-            
-            for (let i = 0; i < particlesCount; i++) {
-                createParticle();
-            }
-            
-            function createParticle() {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Tamaño aleatorio
-                const size = Math.random() * 50 + 10;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                // Posición aleatoria
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
-                particle.style.left = `${posX}%`;
-                particle.style.bottom = `${-20}%`;
-                
-                // Opacidad y duración aleatorias
-                const duration = Math.random() * 10 + 10;
-                particle.style.animation = `float ${duration}s infinite`;
-                particle.style.animationDelay = `${Math.random() * 10}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-        });
-    </script>
+    <script src="js/minimal-animations.js"></script>
 </body>
 </html>

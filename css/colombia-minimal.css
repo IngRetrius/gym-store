@@ -1,0 +1,598 @@
+/* colombia-minimal.css - Estilos modernos con tema oscuro y acentos colombianos */
+
+:root {
+    /* Colores base */
+    --dark-bg: #121212;
+    --darker-bg: #0a0a0a;
+    --medium-bg: #1e1e24;
+    --light-bg: #2a2a30;
+    
+    /* Colores de la bandera colombiana */
+    --colombia-yellow: #FFDA00;
+    --colombia-blue: #00338D;
+    --colombia-red: #C8102E;
+    
+    /* Otros colores */
+    --text: #ffffff;
+    --text-muted: #b0b0b0;
+    --text-dark: #121212;
+    --modern-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Gradiente mejorado para ser más sutil y estético */
+.colombia-gradient {
+    background: linear-gradient(90deg, 
+        var(--colombia-yellow) 0%, 
+        var(--colombia-blue) 50%, 
+        var(--colombia-red) 100%);
+    background-size: 300% 100%;
+    animation: subtle-flow 8s ease infinite alternate;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes subtle-flow {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+body.dark-theme {
+    background-color: var(--dark-bg);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Fondos con círculos optimizados para imagen PNG */
+.bg-circles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.07;
+    pointer-events: none;
+}
+
+.circle-1 {
+    width: 500px;
+    height: 500px;
+    top: -100px;
+    right: -100px;
+    background: var(--colombia-yellow);
+    animation: float 20s infinite alternate ease-in-out;
+}
+
+.circle-2 {
+    width: 300px;
+    height: 300px;
+    bottom: 10%;
+    left: -100px;
+    background: var(--colombia-blue);
+    animation: float 15s infinite alternate-reverse ease-in-out;
+}
+
+.circle-3 {
+    width: 200px;
+    height: 200px;
+    top: 60%;
+    right: 15%;
+    background: var(--colombia-red);
+    animation: float 12s infinite alternate ease-in-out;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(50px, 50px) scale(1.1);
+    }
+}
+
+/* Header oscuro */
+.modern-header {
+    background-color: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.modern-header .logo img {
+    max-height: 40px;
+}
+
+.modern-header nav a {
+    color: var(--text);
+    font-weight: 600;
+    position: relative;
+    padding: 5px 0;
+}
+
+.modern-header nav a:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--colombia-yellow);
+    transition: width 0.3s ease;
+}
+
+.modern-header nav a:hover, 
+.modern-header nav a.active {
+    color: var(--colombia-yellow);
+}
+
+.modern-header nav a:hover:after, 
+.modern-header nav a.active:after {
+    width: 100%;
+}
+
+.modern-header .cart-icon {
+    color: var(--text);
+}
+
+.modern-header .cart-count {
+    background: var(--colombia-red);
+    color: white;
+}
+
+/* Hero a pantalla completa */
+.hero-fullscreen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 0;
+    padding-top: 80px; /* Compensar el header fixed */
+}
+
+.hero-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    flex: 1;
+}
+
+.hero-content {
+    width: 50%;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: fadeInLeft 1s ease-out forwards;
+    background-color: var(--dark-bg);
+}
+
+.hero-image {
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: scaleUp 1.5s ease-out forwards;
+    background-color: transparent;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero-title {
+    font-size: 5rem;
+    font-weight: 900;
+    margin-bottom: 30px;
+    line-height: 1;
+    position: relative;
+    color: var(--text);
+}
+
+.hero-title:after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 80px;
+    height: 5px;
+    background: var(--colombia-yellow);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+    max-width: 90%;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    color: white;
+    font-weight: 700;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    border: none;
+    align-self: flex-start;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Sección de valores de marca - ESPACIO REDUCIDO */
+.brand-values {
+    padding: 30px 0;
+    background-color: var(--dark-bg);
+    color: white;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    margin-top: -40px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos de las tarjetas de valores con colores específicos */
+.value-item {
+    padding: 40px;
+    position: relative;
+    transition: all 0.3s ease;
+    background-color: var(--medium-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Animaciones mejoradas para hover */
+.value-item:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Título blanco por defecto para todos */
+.value-item h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 2px;
+    color: var(--text);
+    transition: color 0.3s ease;
+}
+
+/* Cada tarjeta cambia al color correspondiente en hover */
+.value-yellow:hover h3 {
+    color: var(--colombia-yellow); /* Amarillo para LIBERTAD */
+}
+
+.value-blue:hover h3 {
+    color: var(--colombia-blue); /* Azul para EXCLUSIVIDAD */
+}
+
+.value-red:hover h3 {
+    color: var(--colombia-red); /* Rojo para CALIDAD */
+}
+
+/* Banda de color en la parte superior de cada tarjeta */
+.value-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Asignar colores específicos a cada banda */
+.value-yellow .value-accent {
+    background-color: var(--colombia-yellow);
+}
+
+.value-blue .value-accent {
+    background-color: var(--colombia-blue);
+}
+
+.value-red .value-accent {
+    background-color: var(--colombia-red);
+}
+
+/* Efectos de hover para las bandas */
+.value-item:hover .value-accent {
+    height: 8px;
+}
+
+.value-yellow:hover .value-accent {
+    box-shadow: 0 0 15px rgba(255, 218, 0, 0.5);
+}
+
+.value-blue:hover .value-accent {
+    box-shadow: 0 0 15px rgba(0, 51, 141, 0.5);
+}
+
+.value-red:hover .value-accent {
+    box-shadow: 0 0 15px rgba(200, 16, 46, 0.5);
+}
+
+.value-item p {
+    line-height: 1.6;
+    color: var(--text-muted);
+    position: relative;
+    z-index: 1;
+    font-size: 1.1rem;
+}
+
+/* Footer moderno oscuro */
+.modern-footer {
+    background-color: var(--darker-bg);
+    color: var(--text);
+    padding: 60px 0 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.modern-footer .footer-links a {
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+.modern-footer .footer-links a:hover {
+    color: var(--colombia-yellow);
+}
+
+.modern-footer .social-links a {
+    background-color: var(--medium-bg);
+    color: var(--text);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.modern-footer .social-links a:hover {
+    background-color: var(--colombia-yellow);
+    color: var(--text-dark);
+    transform: translateY(-3px);
+}
+
+.modern-footer .footer-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.05);
+    margin: 20px 0;
+}
+
+.modern-footer .footer-bottom {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Botón de menú móvil */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--text);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* Ajustes para carrito */
+.cart-container {
+    background-color: var(--medium-bg);
+    color: var(--text);
+}
+
+.cart-header {
+    background: linear-gradient(to right, var(--darker-bg), var(--medium-bg));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cart-overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.checkout-btn {
+    color: white;
+}
+
+.checkout-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Utilidades generales */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .hero-title {
+        font-size: 4rem;
+    }
+    
+    .hero-content {
+        padding: 60px;
+    }
+    
+    .values-grid {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-content-wrapper {
+        flex-direction: column-reverse;
+        height: auto;
+    }
+    
+    .hero-content, .hero-image {
+        width: 100%;
+    }
+    
+    .hero-content {
+        padding: 60px 40px;
+    }
+    
+    .hero-image {
+        height: 50vh;
+    }
+    
+    .values-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .modern-header nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--darker-bg);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .modern-header nav.active {
+        max-height: 300px;
+    }
+    
+    .modern-header nav ul {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .modern-header nav ul li {
+        margin: 10px 0;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content {
+        padding: 40px 20px;
+    }
+}

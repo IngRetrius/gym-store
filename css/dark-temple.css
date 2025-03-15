@@ -557,6 +557,85 @@ footer:before {
     display: block;
 }
 
+/* Estilos para el botón de menú móvil */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 101;
+    position: relative;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #ffffff; /* Blanco para que se vea sobre el fondo negro */
+    transition: all 0.3s ease;
+}
+
+/* Transformación del botón hamburguesa a X */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* Estilos para el menú móvil */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #121212; /* Color oscuro consistente con el tema */
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        z-index: 100;
+    }
+    
+    nav.active {
+        max-height: 300px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+    
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 10px 0;
+        color: #ffffff; /* Texto blanco para el menú oscuro */
+    }
+    
+    nav ul li a:hover {
+        color: #9d5cff; /* Color del acento púrpura para el hover */
+    }
+}
+
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 992px) {
     .hero-title {
