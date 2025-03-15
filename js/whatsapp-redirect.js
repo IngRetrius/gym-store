@@ -12,7 +12,7 @@ function createWhatsAppMessage() {
         return null;
     }
 
-    let message = '🛒 *NUEVO PEDIDO* 🛒\n\n';
+    let message = '🛒 *NUEVO PEDIDO GYMTAY* 🛒\n\n';
     message += '*Productos:*\n';
     
     // Añadir cada producto al mensaje
@@ -34,7 +34,7 @@ function createWhatsAppMessage() {
     message += '- Dirección de entrega:\n';
     message += '- Método de pago preferido:\n';
     message += '- Notas adicionales:\n\n';
-    message += 'Gracias por elegir El Templo del Oversize!';
+    message += '¡Gracias por elegir GymTay!';
     
     return encodeURIComponent(message);
 }

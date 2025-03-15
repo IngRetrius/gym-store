@@ -162,12 +162,12 @@ nav a:hover:after, nav a.active:after {
 
 .cta-button {
     display: inline-block;
-    padding: 18px 50px;
+    padding: 15px 32px;
     background: var(--gradient-cta);
     color: var(--text);
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1rem;
     letter-spacing: 3px;
     border-radius: 4px;
     transition: all 0.4s ease;
