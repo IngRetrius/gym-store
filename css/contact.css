@@ -1,4 +1,4 @@
-/* contact.css - Estilos actualizados para la página de contacto con WhatsApp */
+/* contact.css - Estilos actualizados para la página de contacto con tema nocturno/constelaciones */
 
 /* Variables específicas para contacto */
 :root {
@@ -9,24 +9,20 @@
     --contact-text: #ffffff;
     --contact-muted: #b0b0b0;
     --contact-subtle: #8a8a8a;
-    --contact-accent: #9d5cff;
-    --contact-accent-secondary: #ff3e6c;
+    --contact-accent: #4169E1; /* Azul eléctrico */
+    --contact-accent-secondary: #00d0ff; /* Azul celeste */
     --contact-border: #2d2d3a;
-    --contact-gradient-primary: linear-gradient(135deg, #9d5cff 0%, #5c11ff 100%);
-    --contact-gradient-cta: linear-gradient(135deg, #ff3e6c 0%, #ff8f6c 100%);
+    --contact-highlight: rgba(65, 105, 225, 0.1);
+    --contact-gradient-primary: linear-gradient(135deg, #4169E1 0%, #00d0ff 100%);
+    --contact-gradient-starry: linear-gradient(135deg, #000000 0%, #1a1a2e 100%);
     --contact-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    --whatsapp-green: #25D366;
-    --whatsapp-gradient: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-    --instagram-gradient: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-    --facebook-blue: #4267B2;
-    --tiktok-black: #000000;
-    --youtube-red: #FF0000;
+    --whatsapp-icon: #25D366;
 }
 
 /* ---------- BANNER DE CONTACTO ---------- */
 .contact-banner {
     height: 40vh;
-    background: linear-gradient(rgba(10, 10, 12, 0.8), rgba(10, 10, 14, 0.9)), url('../assets/images/contact/contact-banner.jpg') center center no-repeat;
+    background: linear-gradient(rgba(10, 10, 12, 0.7), rgba(10, 10, 14, 0.8)), url('../assets/images/contact/contact-banner.jpg') center center no-repeat;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -44,28 +40,8 @@
     height: 150%;
     top: -25%;
     left: -25%;
-    background: radial-gradient(circle at center, rgba(157, 92, 255, 0.1) 0%, rgba(255, 62, 108, 0.05) 50%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(65, 105, 225, 0.15) 0%, rgba(0, 208, 255, 0.05) 50%, transparent 70%);
     z-index: 1;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.contact-banner:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    background: linear-gradient(to bottom, transparent, var(--contact-bg));
-    z-index: 2;
 }
 
 .contact-banner-content {
@@ -90,7 +66,7 @@
     font-weight: 800;
     margin-bottom: 15px;
     letter-spacing: 5px;
-    text-shadow: 0 0 30px rgba(157, 92, 255, 0.6);
+    text-shadow: 0 0 30px rgba(65, 105, 225, 0.6);
     position: relative;
     display: inline-block;
 }
@@ -200,7 +176,7 @@
 .location-icon, .hours-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(rgba(157, 92, 255, 0.1), rgba(157, 92, 255, 0.05));
+    background: linear-gradient(rgba(65, 105, 225, 0.1), rgba(0, 208, 255, 0.05));
     color: var(--contact-accent);
     border-radius: 50%;
     display: flex;
@@ -228,9 +204,9 @@
 }
 
 .location-info h3, .hours-info h3 {
-    font-size: 1.2rem;
     margin-bottom: 8px;
     color: var(--contact-text);
+    font-size: 1.2rem;
 }
 
 .location-info p, .hours-info p {
@@ -262,9 +238,7 @@
 }
 
 .benefit-item i {
-    background: var(--contact-gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--contact-accent);
     font-size: 1.8rem;
     margin-bottom: 10px;
     display: block;
@@ -276,9 +250,9 @@
     line-height: 1.5;
 }
 
-/* ---------- WHATSAPP DIRECTO ---------- */
+/* ---------- WHATSAPP DIRECTO (REDISEÑADO) ---------- */
 .contact-whatsapp {
-    background: linear-gradient(145deg, #0d1f12 0%, #073b20 100%);
+    background: var(--contact-gradient-starry);
     padding: 40px;
     display: flex;
     flex-direction: column;
@@ -293,15 +267,48 @@
     position: absolute;
     width: 150%;
     height: 150%;
-    background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23198c4f' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+    background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234169E1' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
     top: -25%;
     left: -25%;
-    opacity: 0.7;
-    animation: pattern-move 100s linear infinite;
+    opacity: 0.2;
+    animation: starryMove 100s linear infinite;
     z-index: 1;
 }
 
-@keyframes pattern-move {
+/* Estrellas en el fondo */
+.starry-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle 4s infinite ease-in-out;
+}
+
+.star-1 { width: 1px; height: 1px; }
+.star-2 { width: 2px; height: 2px; }
+.star-3 { width: 3px; height: 3px; }
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes starryMove {
     0% {
         transform: rotate(0deg);
     }
@@ -320,7 +327,7 @@
 .whatsapp-icon {
     width: 90px;
     height: 90px;
-    background: var(--whatsapp-gradient);
+    background: linear-gradient(135deg, #4169E1 0%, #00d0ff 100%);
     color: white;
     font-size: 2.8rem;
     border-radius: 50%;
@@ -328,23 +335,27 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto 25px;
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 10px 25px rgba(65, 105, 225, 0.4);
     position: relative;
     animation: pulse 2s infinite;
+}
+
+.whatsapp-icon i {
+    color: white;
 }
 
 @keyframes pulse {
     0% {
         transform: scale(1);
-        box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+        box-shadow: 0 10px 25px rgba(65, 105, 225, 0.4);
     }
     50% {
         transform: scale(1.05);
-        box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6);
+        box-shadow: 0 15px 30px rgba(65, 105, 225, 0.6);
     }
     100% {
         transform: scale(1);
-        box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+        box-shadow: 0 10px 25px rgba(65, 105, 225, 0.4);
     }
 }
 
@@ -365,11 +376,11 @@
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: var(--whatsapp-gradient);
+    background: var(--contact-gradient-primary);
 }
 
 .whatsapp-content p {
-    color: #a0e9c0;
+    color: var(--contact-muted);
     margin-bottom: 30px;
     max-width: 80%;
     margin-left: auto;
@@ -404,7 +415,7 @@
 .whatsapp-button {
     display: inline-block;
     padding: 16px 35px;
-    background: var(--whatsapp-gradient);
+    background: var(--contact-gradient-primary);
     color: white;
     font-weight: 600;
     letter-spacing: 1px;
@@ -412,10 +423,16 @@
     transition: all 0.3s ease;
     text-transform: uppercase;
     margin-bottom: 20px;
-    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    box-shadow: 0 10px 20px rgba(65, 105, 225, 0.3);
     position: relative;
     overflow: hidden;
     border: none;
+}
+
+.whatsapp-button i {
+    color: var(--whatsapp-icon); /* Mantenemos el ícono de WhatsApp en su color original */
+    margin-right: 10px;
+    font-size: 1.3rem;
 }
 
 .whatsapp-button:before {
@@ -429,14 +446,9 @@
     transition: all 0.5s ease;
 }
 
-.whatsapp-button i {
-    margin-right: 10px;
-    font-size: 1.3rem;
-}
-
 .whatsapp-button:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 15px 30px rgba(65, 105, 225, 0.4);
 }
 
 .whatsapp-button:hover:before {
@@ -450,11 +462,11 @@
 .phone-number p {
     margin-bottom: 5px;
     font-size: 0.9rem;
-    color: #a0e9c0;
+    color: var(--contact-muted);
 }
 
 .phone-number a {
-    color: white;
+    color: var(--contact-accent-secondary);
     font-size: 1.3rem;
     font-weight: 700;
     transition: all 0.3s ease;
@@ -470,12 +482,12 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--whatsapp-gradient);
+    background: var(--contact-gradient-primary);
     transition: width 0.3s ease;
 }
 
 .phone-number a:hover {
-    color: #25D366;
+    color: var(--contact-accent);
 }
 
 .phone-number a:hover:before {
@@ -571,72 +583,49 @@
     font-size: 3rem;
     margin-bottom: 20px;
     transition: transform 0.3s ease;
+    color: var(--contact-accent);
 }
 
 .social-item span {
     font-weight: 600;
     font-size: 1.1rem;
     transition: all 0.3s ease;
-}
-
-.social-item.instagram {
-    color: #E1306C;
-}
-
-.social-item.facebook {
-    color: var(--facebook-blue);
-}
-
-.social-item.tiktok {
     color: var(--contact-text);
-}
-
-.social-item.youtube {
-    color: var(--youtube-red);
 }
 
 .social-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--contact-accent);
 }
 
 .social-item:hover i {
     transform: scale(1.2);
 }
 
-.social-item.instagram:hover {
-    background: var(--instagram-gradient);
-    color: white;
-    border-color: transparent;
+.social-item:hover span {
+    color: var(--contact-accent-secondary);
 }
 
-.social-item.facebook:hover {
-    background-color: var(--facebook-blue);
-    color: white;
-    border-color: transparent;
+/* Efecto de constelaciones */
+.night-sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
 }
 
-.social-item.tiktok:hover {
-    background: linear-gradient(45deg, #000000, #333333);
-    color: white;
-    border-color: transparent;
-}
-
-.social-item.youtube:hover {
-    background-color: var(--youtube-red);
-    color: white;
-    border-color: transparent;
-}
-
-/* ---------- RESPONSIVE ---------- */
+/* Responsive */
 @media (max-width: 992px) {
     .contact-card {
         grid-template-columns: 1fr;
     }
     
-    .contact-whatsapp:before {
-        width: 200%;
-        height: 200%;
+    .contact-benefits {
+        grid-template-columns: repeat(3, 1fr);
     }
     
     .social-grid {

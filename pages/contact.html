@@ -6,7 +6,6 @@
     <title>Contacto | GymTay</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/cart.css">
-    <link rel="stylesheet" href="../css/dark-temple.css">
     <link rel="stylesheet" href="../css/contact.css">
     <link rel="stylesheet" href="../css/colombia-minimal.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
@@ -51,8 +50,9 @@
     </header>
 
     <main class="contact-main">
-        <!-- Banner de contacto -->
+        <!-- Banner de contacto con tema nocturno -->
         <section class="contact-banner">
+            <div class="night-sky" id="nightSky"></div>
             <div class="contact-banner-content">
                 <h1>CONTACTO</h1>
                 <p class="contact-subtitle">Conéctate con GymTay</p>
@@ -67,7 +67,7 @@
                     <p>Para cualquier consulta, duda o sugerencia, contáctanos directamente a través de WhatsApp. Nuestro equipo está disponible para atenderte personalmente.</p>
                     
                     <div class="contact-location">
-                        <div class="location-icon" style="background: linear-gradient(rgba(255, 218, 0, 0.1), rgba(255, 218, 0, 0.05)); color: var(--colombia-yellow);">
+                        <div class="location-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="location-info">
@@ -77,7 +77,7 @@
                     </div>
                     
                     <div class="contact-hours">
-                        <div class="hours-icon" style="background: linear-gradient(rgba(0, 51, 141, 0.1), rgba(0, 51, 141, 0.05)); color: var(--colombia-blue);">
+                        <div class="hours-icon">
                             <i class="far fa-clock"></i>
                         </div>
                         <div class="hours-info">
@@ -89,21 +89,22 @@
                     
                     <div class="contact-benefits">
                         <div class="benefit-item">
-                            <i class="fas fa-headset" style="color: var(--colombia-yellow);"></i>
+                            <i class="fas fa-headset"></i>
                             <span>Atención personalizada</span>
                         </div>
                         <div class="benefit-item">
-                            <i class="fas fa-bolt" style="color: var(--colombia-blue);"></i>
+                            <i class="fas fa-bolt"></i>
                             <span>Respuesta rápida</span>
                         </div>
                         <div class="benefit-item">
-                            <i class="fas fa-shield-alt" style="color: var(--colombia-red);"></i>
+                            <i class="fas fa-shield-alt"></i>
                             <span>Comunicación segura</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="contact-whatsapp">
+                    <div class="starry-background" id="starryBg"></div>
                     <div class="whatsapp-content">
                         <div class="whatsapp-icon">
                             <i class="fab fa-whatsapp"></i>
@@ -116,7 +117,7 @@
                             <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wa.me/573106564709" alt="Código QR WhatsApp" class="qr-code">
                         </div>
                         
-                        <a href="https://wa.me/+573106564709" class="whatsapp-button colombia-gradient" target="_blank">
+                        <a href="https://wa.me/+573106564709" class="whatsapp-button" target="_blank">
                             <i class="fab fa-whatsapp"></i>
                             INICIAR CHAT
                         </a>
@@ -136,19 +137,19 @@
             <p>Mantente al día con nuestros próximos drops y novedades</p>
             
             <div class="social-grid">
-                <a href="#" class="social-item instagram">
+                <a href="#" class="social-item">
                     <i class="fab fa-instagram"></i>
                     <span>Instagram</span>
                 </a>
-                <a href="#" class="social-item facebook">
+                <a href="#" class="social-item">
                     <i class="fab fa-facebook-f"></i>
                     <span>Facebook</span>
                 </a>
-                <a href="#" class="social-item tiktok">
+                <a href="#" class="social-item">
                     <i class="fab fa-tiktok"></i>
                     <span>TikTok</span>
                 </a>
-                <a href="#" class="social-item youtube">
+                <a href="#" class="social-item">
                     <i class="fab fa-youtube"></i>
                     <span>YouTube</span>
                 </a>
@@ -181,44 +182,81 @@
         </div>
     </footer>
 
+    
     <!-- Carrito de compras (inicialmente oculto) -->
-    <div class="cart-container" id="cart-container">
-        <div class="cart-header">
-            <h3>Tu carrito</h3>
-            <button id="close-cart"><i class="fas fa-times"></i></button>
-        </div>
-        
-        <div class="cart-items" id="cart-items">
-            <!-- Los productos del carrito se generarán dinámicamente con JavaScript -->
-        </div>
-        
-        <div class="cart-footer">
-            <div class="cart-summary">
-                <div class="summary-row">
-                    <span>Subtotal</span>
-                    <span>$0.00</span>
-                </div>
-                <div class="summary-row">
-                    <span>Envío</span>
-                    <span>Calculado al finalizar</span>
-                </div>
-                <div class="summary-row total">
-                    <span>Total</span>
-                    <span id="cart-total">$0.00</span>
-                </div>
-            </div>
-            <button id="checkout-whatsapp" class="checkout-btn colombia-gradient">
-                <i class="fab fa-whatsapp"></i>
-                Comprar por WhatsApp
-            </button>
-        </div>
+<div class="cart-container" id="cart-container">
+    <div class="cart-header">
+        <h3>Tu carrito</h3>
+        <button id="close-cart"><i class="fas fa-times"></i></button>
     </div>
     
-    <div class="cart-overlay" id="cart-overlay"></div>
-
-    <script src="../js/main.js"></script>
-    <script src="../js/cart.js"></script>
-    <script src="../js/whatsapp-redirect.js"></script>
-    <script src="../js/minimal-animations.js"></script>
-</body>
-</html>
+    <div class="cart-items" id="cart-items">
+        <!-- Los productos del carrito se generarán dinámicamente con JavaScript -->
+    </div>
+    
+    <div class="cart-footer">
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span>$0.00</span>
+            </div>
+            <div class="summary-row">
+                <span>Envío</span>
+                <span>Calculado al finalizar</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+        </div>
+        <button id="checkout-whatsapp" class="checkout-btn">
+            <i class="fab fa-whatsapp"></i>
+            Comprar por WhatsApp
+        </button>
+    </div>
+ </div>
+ 
+ <div class="cart-overlay" id="cart-overlay"></div>
+ 
+ <script src="../js/main.js"></script>
+ <script src="../js/cart.js"></script>
+ <script src="../js/whatsapp-redirect.js"></script>
+ <script src="../js/minimal-animations.js"></script>
+ 
+ <!-- Script para crear las estrellas en el cielo nocturno -->
+ <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Crear estrellas para el fondo del banner
+        const nightSky = document.getElementById('nightSky');
+        if (nightSky) {
+            createStars(nightSky, 150);
+        }
+        
+        // Crear estrellas para el fondo de la sección de WhatsApp
+        const starryBg = document.getElementById('starryBg');
+        if (starryBg) {
+            createStars(starryBg, 80);
+        }
+        
+        function createStars(container, count) {
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                
+                // Tamaño aleatorio de estrella
+                const starSize = Math.floor(Math.random() * 3) + 1;
+                star.className = `star star-${starSize}`;
+                
+                // Posición aleatoria
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                star.style.left = `${posX}%`;
+                star.style.top = `${posY}%`;
+                
+                // Retraso aleatorio para el parpadeo
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(star);
+            }
+        }
+    });
+ </script>

@@ -1,4 +1,4 @@
-/* about.css - Estilos actualizados para la página Nosotros tipo blog */
+/* about.css - Estilos actualizados para la página Nosotros con tema amanecer */
 
 /* Variables específicas para about */
 :root {
@@ -9,19 +9,26 @@
     --blog-text: #ffffff;
     --blog-muted: #b0b0b0;
     --blog-subtle: #8a8a8a;
-    --blog-accent: #9d5cff;
-    --blog-accent-secondary: #ff3e6c;
+    --blog-accent: #ffffff;
+    --blog-accent-secondary: #ff8f6c;
     --blog-border: #2d2d3a;
-    --blog-highlight: rgba(157, 92, 255, 0.1);
-    --blog-gradient-primary: linear-gradient(135deg, #9d5cff 0%, #5c11ff 100%);
+    --blog-highlight: rgba(255, 153, 0, 0.1);
+    --blog-gradient-primary: linear-gradient(135deg, #ff8c00 0%, #ffb700 100%);
     --blog-gradient-cta: linear-gradient(135deg, #ff3e6c 0%, #ff8f6c 100%);
     --blog-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    
+    /* Nuevos colores para tema amanecer */
+    --sunrise-orange: #ff8c00;
+    --sunrise-yellow: #ffb700;
+    --sunrise-light: #ffcc66;
+    --sunrise-highlight: rgba(255, 140, 0, 0.15);
+    --sunrise-gradient: linear-gradient(135deg, #ff8c00 0%, #ffb700 100%);
 }
 
 /* ---------- BANNER DE NOSOTROS ---------- */
 .about-banner {
     height: 40vh;
-    background: linear-gradient(rgba(10, 10, 12, 0.8), rgba(10, 10, 14, 0.9)), url('../assets/images/about/about-banner.jpg') center center no-repeat;
+    background: linear-gradient(rgba(10, 10, 12, 0.6), rgba(10, 10, 14, 0.7)), url('../assets/images/about/about-banner.jpg') center center no-repeat;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -39,7 +46,7 @@
     height: 150%;
     top: -25%;
     left: -25%;
-    background: radial-gradient(circle at center, rgba(157, 92, 255, 0.1) 0%, rgba(255, 62, 108, 0.05) 50%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(255, 140, 0, 0.15) 0%, rgba(255, 183, 0, 0.08) 50%, transparent 70%);
     z-index: 1;
 }
 
@@ -85,7 +92,7 @@
     font-weight: 800;
     margin-bottom: 15px;
     letter-spacing: 5px;
-    text-shadow: 0 0 30px rgba(157, 92, 255, 0.6);
+    text-shadow: 0 0 30px rgba(255, 140, 0, 0.6);
     position: relative;
     display: inline-block;
 }
@@ -98,7 +105,7 @@
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: var(--blog-gradient-primary);
+    background: var(--sunrise-gradient);
 }
 
 .about-subtitle {
@@ -187,7 +194,7 @@
     left: 0;
     width: 50px;
     height: 3px;
-    background: var(--blog-gradient-primary);
+    background: var(--sunrise-gradient);
 }
 
 .article-section p {
@@ -261,9 +268,21 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background: var(--blog-gradient-primary);
     opacity: 0;
     transition: opacity 0.3s ease;
+}
+
+/* Colores específicos para cada pilar */
+.pillar:nth-child(1):before {
+    background:rgb(255, 174, 0);
+}
+
+.pillar:nth-child(2):before {
+    background: var(--colombia-blue);
+}
+
+.pillar:nth-child(3):before {
+    background: var(--colombia-red);
 }
 
 .pillar:hover {
@@ -275,13 +294,26 @@
     opacity: 1;
 }
 
-.pillar-icon {
+/* Iconos con colores específicos */
+.pillar-icon i {
     font-size: 2.5rem;
-    color: var(--blog-accent);
+    display: inline-block;
     margin-bottom: 20px;
-    background: var(--blog-gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+}
+
+/* Color amanecer para Libertad */
+.pillar:nth-child(1) .pillar-icon i {
+    color: rgb(255, 174, 0);
+}
+
+/* Azul colombiano para Exclusividad */
+.pillar:nth-child(2) .pillar-icon i {
+    color: var(--colombia-blue);
+}
+
+/* Rojo colombiano para Calidad */
+.pillar:nth-child(3) .pillar-icon i {
+    color: var(--colombia-red);
 }
 
 .pillar h3 {
@@ -290,10 +322,41 @@
     font-weight: 700;
 }
 
+/* Ajuste específico para EXCLUSIVIDAD */
+.pillar:nth-child(2) h3 {
+    letter-spacing: 0px; /* Menos espacio entre letras */
+}
+
 .pillar p {
     font-size: 0.95rem;
     line-height: 1.6;
     color: var(--blog-muted);
+}
+
+/* Efectos hover para los títulos */
+.pillar:nth-child(1):hover h3 {
+    color: rgb(255, 174, 0);
+}
+
+.pillar:nth-child(2):hover h3 {
+    color: var(--colombia-blue);
+}
+
+.pillar:nth-child(3):hover h3 {
+    color: var(--colombia-red);
+}
+
+/* Bordes al hacer hover */
+.pillar:nth-child(1):hover {
+    border-color: rgb(255, 174, 0);
+}
+
+.pillar:nth-child(2):hover {
+    border-color: var(--colombia-blue);
+}
+
+.pillar:nth-child(3):hover {
+    border-color: var(--colombia-red);
 }
 
 /* ---------- CITA DESTACADA ---------- */
@@ -301,9 +364,9 @@
     font-size: 1.5rem;
     line-height: 1.6;
     padding: 40px 60px;
-    border-left: 5px solid var(--blog-accent);
+    border-left: 5px solid var(--sunrise-orange);
     margin: 50px 0;
-    background-color: var(--blog-highlight);
+    background-color: var(--sunrise-highlight);
     position: relative;
     font-style: italic;
     color: var(--blog-text);
@@ -317,7 +380,7 @@
     top: 10px;
     left: 20px;
     font-size: 5rem;
-    background: var(--blog-gradient-primary);
+    background: var(--sunrise-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 0.3;
@@ -346,7 +409,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    background: var(--blog-gradient-primary);
+    background: var(--sunrise-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 1.2rem;
@@ -383,13 +446,13 @@
 .commitment-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    border-color: var(--blog-accent);
+    border-color: var(--sunrise-orange);
 }
 
 .commitment-item i {
     font-size: 1.8rem;
     margin-right: 15px;
-    background: var(--blog-gradient-primary);
+    background: var(--sunrise-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -420,19 +483,24 @@
     transform: translateX(5px);
 }
 
+/* Quitamos todos los estilos de fondo y dejamos el texto en blanco */
 .plan-item h4 {
-    color: var(--blog-accent);
+    color: #ffffff; /* Texto blanco */
     margin-bottom: 10px;
     letter-spacing: 1px;
-    background: var(--blog-gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-weight: 600;
     display: inline-block;
+    background: none; /* Eliminamos cualquier fondo */
 }
 
 .plan-item p {
     margin: 0;
     color: var(--blog-muted);
+}
+
+/* Efecto hover simple */
+.plan-item:hover h4 {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 /* ---------- CONCLUSIÓN ---------- */
@@ -454,7 +522,7 @@
     display: inline-block;
     margin-top: 20px;
     padding: 15px 30px;
-    background: var(--blog-gradient-cta);
+    background: var(--sunrise-gradient);
     color: var(--blog-text);
     text-transform: uppercase;
     font-weight: 600;
@@ -462,12 +530,12 @@
     border-radius: 4px;
     transition: all 0.3s ease;
     border: none;
-    box-shadow: 0 10px 20px rgba(255, 62, 108, 0.2);
+    box-shadow: 0 10px 20px rgba(255, 140, 0, 0.2);
 }
 
 .article-conclusion .cta-button:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(255, 62, 108, 0.3);
+    box-shadow: 0 15px 30px rgba(255, 140, 0, 0.3);
 }
 
 /* ---------- SIDEBAR ---------- */
@@ -490,7 +558,7 @@
 .sidebar-section:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    border-color: var(--blog-accent);
+    border-color: var(--sunrise-orange);
 }
 
 .sidebar-section h3 {
@@ -509,7 +577,7 @@
     left: 0;
     width: 50px;
     height: 2px;
-    background: var(--blog-gradient-primary);
+    background: var(--sunrise-gradient);
 }
 
 .past-drops {
@@ -532,8 +600,8 @@
 }
 
 .past-drops a:hover {
-    background-color: var(--blog-highlight);
-    border-color: var(--blog-accent);
+    background-color: var(--sunrise-highlight);
+    border-color: var(--sunrise-orange);
     transform: translateX(5px);
 }
 
@@ -564,7 +632,7 @@
     margin: 0 auto 15px;
     border: 3px solid transparent;
     background: padding-box var(--blog-light-bg),
-                var(--blog-gradient-primary) border-box;
+                var(--sunrise-gradient) border-box;
     position: relative;
     transition: transform 0.3s ease;
 }
@@ -621,7 +689,7 @@
 }
 
 .sidebar-social a:hover {
-    background: var(--blog-gradient-primary);
+    background: var(--sunrise-gradient);
     color: var(--blog-text);
     transform: translateY(-3px);
     border-color: transparent;
@@ -694,6 +762,44 @@
     .article-meta {
         flex-direction: column;
         gap: 10px;
+    }
+}
+
+/* Efecto de amanecer para el banner */
+.sunrise-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, 
+        rgba(18, 18, 18, 0.85) 0%,
+        rgba(40, 20, 10, 0.75) 30%,
+        rgba(80, 40, 20, 0.6) 60%,
+        rgba(255, 140, 0, 0.4) 85%,
+        rgba(255, 183, 0, 0.3) 100%);
+    z-index: 1;
+}
+
+/* Animación de rayos solares */
+.sun-rays {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top, rgba(255, 183, 0, 0.15) 0%, transparent 70%);
+    z-index: 2;
+    opacity: 0.7;
+    animation: pulsate 5s infinite alternate;
+}
+
+@keyframes pulsate {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0.8;
     }
 }
 
