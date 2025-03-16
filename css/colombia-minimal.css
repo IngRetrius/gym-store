@@ -536,30 +536,6 @@ body.dark-theme {
     transform: rotate(-45deg) translate(5px, -6px);
 }
 
-/* Ajustes para carrito */
-.cart-container {
-    background-color: var(--medium-bg);
-    color: var(--text);
-}
-
-.cart-header {
-    background: linear-gradient(to right, var(--darker-bg), var(--medium-bg));
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.cart-overlay {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.checkout-btn {
-    color: white;
-}
-
-.checkout-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
 /* Utilidades generales */
 .container {
     width: 100%;

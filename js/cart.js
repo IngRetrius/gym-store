@@ -16,6 +16,15 @@ let closeCartButton;
 let cartOverlay;
 let checkoutButton;
 
+// Variables de color para mantener consistencia con la página principal
+const colors = {
+    yellow: '#FFDA00',
+    blue: '#00338D',
+    red: '#C8102E',
+    buttonGradient: 'linear-gradient(90deg, #2a5298, #00338D)',
+    darkBg: '#121212'
+};
+
 // Inicializar carrito desde localStorage (si existe)
 function initCart() {
     try {
@@ -145,7 +154,7 @@ function updateCartUI() {
                         <p>Talla: ${item.size} | Color: ${item.color}</p>
                     </div>
                     <div class="item-options">
-                        <div class="item-price">$${item.price.toFixed(2)}</div>
+                        <div class="item-price" style="color: ${colors.yellow}">$${item.price.toFixed(2)}</div>
                         <div class="item-quantity">
                             <button class="quantity-btn decrease" data-index="${index}">-</button>
                             <span class="quantity">${item.quantity}</span>
@@ -174,7 +183,7 @@ function updateCartUI() {
                 </div>
                 <div class="summary-row total">
                     <span>Total</span>
-                    <span>$${cart.total.toFixed(2)}</span>
+                    <span style="color: ${colors.yellow}">$${cart.total.toFixed(2)}</span>
                 </div>
             `;
         }
@@ -205,8 +214,16 @@ function updateCartUI() {
         });
     }
     
-    // Actualizar el total
-    cartTotalElement.textContent = `$${cart.total.toFixed(2)}`;
+    // Actualizar el total con el color amarillo
+    if (cartTotalElement) {
+        cartTotalElement.style.color = colors.yellow;
+        cartTotalElement.textContent = `$${cart.total.toFixed(2)}`;
+    }
+    
+    // Actualizar estilo del botón de WhatsApp si existe
+    if (checkoutButton) {
+        checkoutButton.style.background = colors.buttonGradient;
+    }
 }
 
 // Mostrar el carrito
@@ -241,6 +258,22 @@ function showNotification(message, type = 'info') {
     notification.textContent = message;
     notification.className = `notification ${type}`;
     
+    // Establecer el color de fondo según el tipo
+    switch (type) {
+        case 'success':
+            notification.style.background = `linear-gradient(135deg, ${colors.blue} 0%, #004aad 100%)`;
+            break;
+        case 'error':
+            notification.style.background = `linear-gradient(135deg, ${colors.red} 0%, #9e0e26 100%)`;
+            break;
+        case 'warning':
+            notification.style.background = `linear-gradient(135deg, ${colors.yellow} 0%, #d9bc00 100%)`;
+            notification.style.color = '#121212'; // Texto oscuro para fondo amarillo
+            break;
+        default: // info
+            notification.style.background = `linear-gradient(135deg, ${colors.blue} 0%, #004aad 100%)`;
+    }
+    
     // Mostrar notificación
     notification.classList.add('active');
     
@@ -264,6 +297,16 @@ function initCartElements() {
     if (!cartContainer || !cartItemsContainer || !cartCountElement) {
         console.error('Algunos elementos del carrito no se encontraron en el DOM');
         return;
+    }
+    
+    // Establecer el fondo del carrito
+    if (cartContainer) {
+        cartContainer.style.backgroundColor = colors.darkBg;
+    }
+    
+    // Establecer el color del botón de checkout
+    if (checkoutButton) {
+        checkoutButton.style.background = colors.buttonGradient;
     }
     
     // Abrir carrito al hacer clic en el icono
@@ -345,7 +388,7 @@ window.addEventListener('beforeunload', () => {
     saveCart();
 });
 
-// CSS para notificaciones
+// CSS para notificaciones - usando variables de color consistentes
 const notificationStyles = `
 .notification {
     position: fixed;
@@ -365,22 +408,6 @@ const notificationStyles = `
 .notification.active {
     transform: translateY(0);
     opacity: 1;
-}
-
-.notification.success {
-    background-color: #2ecc71;
-}
-
-.notification.info {
-    background-color: #3498db;
-}
-
-.notification.error {
-    background-color: #e74c3c;
-}
-
-.notification.warning {
-    background-color: #f39c12;
 }
 `;
 

@@ -1,4 +1,4 @@
-/* main.css - Estilos principales del sitio */
+/* main.css - Estilos principales del sitio optimizados */
 
 /* ---------- RESET Y VARIABLES ---------- */
 :root {
@@ -12,7 +12,7 @@
     --dark-gray: #777777;
     --white: #ffffff;
     
-    /* Colores de la bandera colombiana */
+    /* Colores de la bandera colombiana - Movidos desde colombia-minimal.css */
     --colombia-yellow: #FFDA00;
     --colombia-blue: #00338D;
     --colombia-blue-light: #4169E1;
@@ -31,6 +31,10 @@
     --heading-font: 'Montserrat', sans-serif;
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
+    
+    /* Gradientes - Movidos desde colombia-minimal.css */
+    --gradient-primary: linear-gradient(135deg, #9d5cff 0%, #5c11ff 100%);
+    --gradient-cta: linear-gradient(135deg, #ff3e6c 0%, #ff8f6c 100%);
 }
 
 * {
@@ -246,12 +250,12 @@ body.dark-theme .cart-count {
     display: block;
     height: 2px;
     width: 100%;
-    background-color: var(--text); /* Color de texto normal */
+    background-color: var(--text);
     transition: all 0.3s ease;
 }
 
 body.dark-theme .mobile-menu-toggle span {
-    background-color: #ffffff; /* Blanco para el modo oscuro */
+    background-color: #ffffff;
 }
 
 /* Transformación del botón hamburguesa a X */
@@ -314,80 +318,6 @@ body.dark-theme .mobile-menu-toggle span {
     padding: 15px 30px;
     font-size: 1rem;
     border-radius: 4px;
-}
-
-/* ---------- FEATURED COLLECTIONS ---------- */
-.featured-collections {
-    padding: 80px 0;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 50px;
-    position: relative;
-}
-
-.section-title:after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background-color: var(--accent);
-    margin: 15px auto 0;
-}
-
-body.dark-theme .section-title:after {
-    background: var(--gradient-primary, linear-gradient(135deg, #9d5cff 0%, #5c11ff 100%));
-}
-
-.collections-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 0 20px;
-}
-
-.collection-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-}
-
-.collection-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.collection-image {
-    height: 350px;
-    overflow: hidden;
-}
-
-.collection-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
-}
-
-.collection-card:hover .collection-image img {
-    transform: scale(1.05);
-}
-
-.collection-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-    color: var(--white);
-}
-
-.collection-info h3 {
-    margin-bottom: 10px;
 }
 
 /* ---------- PRODUCTS GRID ---------- */
@@ -471,7 +401,7 @@ body.dark-theme .product-card {
 }
 
 body.dark-theme .product-tag {
-    background: var(--gradient-primary, linear-gradient(135deg, #9d5cff 0%, #5c11ff 100%));
+    background: var(--gradient-primary);
 }
 
 .product-info {
@@ -495,7 +425,7 @@ body.dark-theme .product-name {
 }
 
 body.dark-theme .product-price {
-    color: var(--colombia-blue-light, #4169E1);
+    color: var(--colombia-blue-light);
 }
 
 .product-meta {
@@ -524,7 +454,7 @@ body.dark-theme .product-price {
 }
 
 body.dark-theme .add-to-cart-btn {
-    background: var(--gradient-cta, linear-gradient(135deg, #ff3e6c 0%, #ff8f6c 100%));
+    background: var(--gradient-cta);
 }
 
 /* ---------- FOOTER ---------- */
@@ -642,153 +572,24 @@ body.dark-theme .social-links a:hover {
     background-color: #f39c12;
 }
 
-/* ---------- RESPONSIVE MEDIA QUERIES ---------- */
-@media (max-width: 992px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .products-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-}
-
-/* Estilos para el menú móvil */
-@media (max-width: 768px) {
-    .mobile-menu-toggle {
-        display: flex;
-    }
-    
-    nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #121212;
-        padding: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-        z-index: 100;
-    }
-    
-    nav.active {
-        max-height: 300px;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        padding: 20px;
-        gap: 15px;
-    }
-    
-    nav ul li {
-        width: 100%;
-        text-align: center;
-    }
-    
-    nav ul li a {
-        display: block;
-        padding: 10px 0;
-        color: #ffffff;
-    }
-    
-    nav ul li a:hover {
-        color: #9d5cff;
-    }
-    
-    body.dark-theme nav ul li a:hover {
-        color: var(--colombia-yellow);
-    }
-    
-    .hero {
-        height: 60vh;
-    }
-    
-    .hero h1 {
-        font-size: 2rem;
-    }
-    
-    .collection-image {
-        height: 250px;
-    }
-}
-
-@media (max-width: 576px) {
-    .instagram-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .newsletter-form form {
-        flex-direction: column;
-    }
-    
-    .newsletter-form input {
-        border-radius: 4px;
-        margin-bottom: 10px;
-    }
-    
-    .newsletter-form button {
-        border-radius: 4px;
-        padding: 12px;
-    }
-}
-
-/* Estilos adicionales para la página de inicio */
-
-/* ---------- CARACTERÍSTICAS ---------- */
-.features {
-    padding: 60px 0;
-    background-color: var(--white);
-}
-
-body.dark-theme .features {
-    background-color: var(--dark-bg);
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.feature {
+/* ---------- SECCIÓN TÍTULO ---------- */
+.section-title {
     text-align: center;
-    padding: 30px 20px;
-    border-radius: 8px;
-    transition: var(--transition);
+    margin-bottom: 50px;
+    position: relative;
 }
 
-body.dark-theme .feature {
-    background-color: var(--medium-bg);
+.section-title:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent);
+    margin: 15px auto 0;
 }
 
-.feature:hover {
-    box-shadow: var(--shadow);
-    transform: translateY(-5px);
-}
-
-.feature-icon {
-    font-size: 2.5rem;
-    color: var(--accent);
-    margin-bottom: 20px;
-}
-
-body.dark-theme .feature-icon {
-    color: var(--colombia-yellow);
-}
-
-.feature h3 {
-    margin-bottom: 15px;
-}
-
-.feature p {
-    color: var(--dark-gray);
-}
-
-body.dark-theme .feature p {
-    color: var(--text-muted);
+body.dark-theme .section-title:after {
+    background: var(--gradient-primary);
 }
 
 /* ---------- BOTONES ---------- */
@@ -813,18 +614,7 @@ body.dark-theme .feature p {
 }
 
 body.dark-theme .button:hover {
-    background: var(--gradient-primary, linear-gradient(135deg, #9d5cff 0%, #5c11ff 100%));
-}
-
-.hero-button {
-    padding: 15px 30px;
-    font-size: 1rem;
-    margin-top: 20px;
-}
-
-.view-all-container {
-    text-align: center;
-    margin-top: 40px;
+    background: var(--gradient-primary);
 }
 
 .view-all-button {
@@ -851,270 +641,29 @@ body.dark-theme .view-all-button {
 }
 
 body.dark-theme .view-all-button:hover {
-    background: var(--gradient-primary, linear-gradient(135deg, #9d5cff 0%, #5c11ff 100%));
+    background: var(--gradient-primary);
     border-color: transparent;
 }
 
-/* ---------- TESTIMONIOS ---------- */
-.testimonials {
-    padding: 80px 0;
-    background-color: var(--secondary);
+/* Colombia Gradient desde Colombia-minimal.css pero mantenido para mantener compatibilidad */
+.colombia-gradient {
+    background: linear-gradient(90deg, 
+        var(--colombia-yellow) 0%, 
+        var(--colombia-blue) 50%, 
+        var(--colombia-red) 100%);
+    background-size: 300% 100%;
+    animation: subtle-flow 8s ease infinite alternate;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-body.dark-theme .testimonials {
-    background-color: var(--darker-bg);
-}
-
-.testimonials-slider {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-}
-
-.testimonial {
-    background-color: var(--white);
-    border-radius: 8px;
-    padding: 30px;
-    box-shadow: var(--shadow);
-    flex: 1;
-    min-width: 300px;
-    max-width: 400px;
-}
-
-body.dark-theme .testimonial {
-    background-color: var(--medium-bg);
-    border: 1px solid var(--border-color, rgba(255, 255, 255, 0.05));
-}
-
-.testimonial-content {
-    margin-bottom: 20px;
-}
-
-.testimonial-content p {
-    font-style: italic;
-    position: relative;
-    padding: 0 10px;
-}
-
-.testimonial-content p::before,
-.testimonial-content p::after {
-    content: '"';
-    font-size: 1.5rem;
-    color: var(--accent);
-    font-weight: bold;
-}
-
-body.dark-theme .testimonial-content p::before,
-body.dark-theme .testimonial-content p::after {
-    color: var(--colombia-yellow);
-}
-
-.testimonial-author {
-    display: flex;
-    align-items: center;
-}
-
-.author-image {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 15px;
-}
-
-.author-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.author-info h4 {
-    margin: 0 0 5px;
-    font-size: 1rem;
-}
-
-/* ---------- INSTAGRAM FEED ---------- */
-.instagram-section {
-    padding: 80px 0;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: var(--accent);
-    font-weight: 600;
-    margin-top: -30px;
-    margin-bottom: 40px;
-}
-
-body.dark-theme .section-subtitle {
-    color: var(--colombia-blue-light);
-}
-
-.instagram-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
-}
-
-.instagram-item {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 1;
-}
-
-.instagram-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
-}
-
-.instagram-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: var(--transition);
-}
-
-.instagram-overlay i {
-    color: var(--white);
-    font-size: 2rem;
-}
-
-.instagram-item:hover img {
-    transform: scale(1.1);
-}
-
-.instagram-item:hover .instagram-overlay {
-    opacity: 1;
-}
-
-/* ---------- NEWSLETTER ---------- */
-.newsletter-section {
-    padding: 60px 0;
-    background-color: var(--primary);
-    color: var(--white);
-}
-
-body.dark-theme .newsletter-section {
-    background-color: var(--darker-bg);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.newsletter-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-
-.newsletter-content {
-    flex: 1;
-    min-width: 300px;
-}
-
-.newsletter-content h2 {
-    margin-bottom: 15px;
-}
-
-.newsletter-content p {
-    opacity: 0.8;
-}
-
-.newsletter-form {
-    flex: 1;
-    min-width: 300px;
-}
-
-.newsletter-form form {
-    display: flex;
-    max-width: 500px;
-}
-
-.newsletter-form input {
-    flex: 1;
-    padding: 15px;
-    border: none;
-    border-radius: 4px 0 0 4px;
-    font-family: var(--main-font);
-    font-size: 1rem;
-}
-
-.newsletter-form button {
-    padding: 0 20px;
-    background-color: var(--accent);
-    color: var(--white);
-    border: none;
-    border-radius: 0 4px 4px 0;
-    font-weight: 600;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-body.dark-theme .newsletter-form button {
-    background: var(--gradient-cta, linear-gradient(135deg, #ff3e6c 0%, #ff8f6c 100%));
-}
-
-.newsletter-form button:hover {
-    background-color: #e34500;
-}
-
-body.dark-theme .newsletter-form button:hover {
-    opacity: 0.9;
-}
-
-/* Responsive para las nuevas secciones */
-@media (max-width: 992px) {
-    .instagram-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .newsletter-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .newsletter-form form {
-        margin: 0 auto;
-    }
-    
-    .testimonials-slider {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .testimonial {
-        width: 100%;
-    }
-}
-
-/* Animaciones generales */
-@keyframes pulse {
+@keyframes subtle-flow {
     0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
+        background-position: 0% 50%;
     }
     100% {
-        transform: scale(1);
+        background-position: 100% 50%;
     }
-}
-
-.pulse-animation {
-    animation: pulse 2s infinite;
 }
 
 /* Fondos con círculos para todas las páginas */
@@ -1205,7 +754,6 @@ body.dark-theme .newsletter-form button:hover {
     pointer-events: none;
 }
 
-/* Hacer las estrellas un poco más grandes y brillantes */
 .particle-star.star-1 {
     width: 2px;
     height: 2px;
@@ -1216,21 +764,21 @@ body.dark-theme .newsletter-form button:hover {
 .particle-star.star-2 {
     width: 3px;
     height: 3px;
-    box-shadow: 0 0 8px 1px rgba(255, 218, 0, 0.8); /* Amarillo */
+    box-shadow: 0 0 8px 1px rgba(255, 218, 0, 0.8);
     animation: twinkle 6s infinite ease-in-out;
 }
 
 .particle-star.star-3 {
     width: 2px;
     height: 2px;
-    box-shadow: 0 0 12px 2px rgba(0, 51, 141, 0.8); /* Azul */
+    box-shadow: 0 0 12px 2px rgba(0, 51, 141, 0.8);
     animation: twinkle 5s infinite ease-in-out;
 }
 
 .particle-star.star-4 {
     width: 3px;
     height: 3px;
-    box-shadow: 0 0 6px 1px rgba(200, 16, 46, 0.8); /* Rojo */
+    box-shadow: 0 0 6px 1px rgba(200, 16, 46, 0.8);
     animation: twinkle 7s infinite ease-in-out;
 }
 
@@ -1245,23 +793,104 @@ body.dark-theme .newsletter-form button:hover {
     }
 }
 
-/* Gradientes de colores colombianos para usar en diferentes elementos */
-.colombia-gradient {
-    background: linear-gradient(90deg, 
-        var(--colombia-yellow) 0%, 
-        var(--colombia-blue) 50%, 
-        var(--colombia-red) 100%);
-    background-size: 300% 100%;
-    animation: subtle-flow 8s ease infinite alternate;
-    color: white;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+/* ---------- RESPONSIVE MEDIA QUERIES ---------- */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
 }
 
-@keyframes subtle-flow {
+/* Estilos para el menú móvil */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #121212;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        z-index: 100;
+    }
+    
+    nav.active {
+        max-height: 300px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+    
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 10px 0;
+        color: #ffffff;
+    }
+    
+    nav ul li a:hover {
+        color: #9d5cff;
+    }
+    
+    body.dark-theme nav ul li a:hover {
+        color: var(--colombia-yellow);
+    }
+    
+    .hero {
+        height: 60vh;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .newsletter-form form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form input {
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+    
+    .newsletter-form button {
+        border-radius: 4px;
+        padding: 12px;
+    }
+}
+
+/* Animaciones generales */
+@keyframes pulse {
     0% {
-        background-position: 0% 50%;
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
     }
     100% {
-        background-position: 100% 50%;
+        transform: scale(1);
     }
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
 }
