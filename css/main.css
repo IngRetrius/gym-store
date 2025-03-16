@@ -2,6 +2,7 @@
 
 /* ---------- RESET Y VARIABLES ---------- */
 :root {
+    /* Colores base */
     --primary: #000000;
     --secondary: #f8f8f8;
     --accent: #ff4d00;
@@ -10,6 +11,22 @@
     --medium-gray: #c5c5c5;
     --dark-gray: #777777;
     --white: #ffffff;
+    
+    /* Colores de la bandera colombiana */
+    --colombia-yellow: #FFDA00;
+    --colombia-blue: #00338D;
+    --colombia-blue-light: #4169E1;
+    --colombia-red: #C8102E;
+    
+    /* Colores del tema oscuro */
+    --dark-bg: #121212;
+    --darker-bg: #0a0a0a;
+    --medium-bg: #1e1e24;
+    --light-bg: #2a2a30;
+    --text-white: #ffffff;
+    --text-muted: #b0b0b0;
+    
+    /* Otros */
     --main-font: 'Montserrat', sans-serif;
     --heading-font: 'Montserrat', sans-serif;
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -22,12 +39,21 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 16px; /* Tamaño base para cálculos de rem */
+}
+
 body {
     font-family: var(--main-font);
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
     background-color: var(--white);
+}
+
+body.dark-theme {
+    background-color: var(--dark-bg);
+    color: var(--text-white);
 }
 
 a {
@@ -114,6 +140,13 @@ header {
     padding: 15px 0;
 }
 
+body.dark-theme header {
+    background-color: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 .header-inner {
     display: flex;
     justify-content: space-between;
@@ -155,8 +188,17 @@ nav a:after {
     transition: var(--transition);
 }
 
+body.dark-theme nav a:after {
+    background: var(--colombia-yellow);
+}
+
 nav a:hover, nav a.active {
     color: var(--accent);
+}
+
+body.dark-theme nav a:hover, 
+body.dark-theme nav a.active {
+    color: var(--colombia-yellow);
 }
 
 nav a:hover:after, nav a.active:after {
@@ -184,6 +226,10 @@ nav a:hover:after, nav a.active:after {
     font-weight: 700;
 }
 
+body.dark-theme .cart-count {
+    background-color: var(--colombia-red);
+}
+
 /* Estilos para el botón de menú móvil */
 .mobile-menu-toggle {
     display: none;
@@ -200,8 +246,12 @@ nav a:hover:after, nav a.active:after {
     display: block;
     height: 2px;
     width: 100%;
-    background-color: #ffffff; /* Blanco para que se vea sobre el fondo negro */
+    background-color: var(--text); /* Color de texto normal */
     transition: all 0.3s ease;
+}
+
+body.dark-theme .mobile-menu-toggle span {
+    background-color: #ffffff; /* Blanco para el modo oscuro */
 }
 
 /* Transformación del botón hamburguesa a X */
@@ -286,6 +336,10 @@ nav a:hover:after, nav a.active:after {
     margin: 15px auto 0;
 }
 
+body.dark-theme .section-title:after {
+    background: var(--gradient-primary, linear-gradient(135deg, #9d5cff 0%, #5c11ff 100%));
+}
+
 .collections-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -342,6 +396,10 @@ nav a:hover:after, nav a.active:after {
     background-color: var(--secondary);
 }
 
+body.dark-theme .products-section {
+    background-color: var(--medium-bg);
+}
+
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -358,6 +416,11 @@ nav a:hover:after, nav a.active:after {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeIn 0.8s forwards;
+}
+
+body.dark-theme .product-card {
+    background-color: var(--medium-bg);
+    border: 1px solid var(--border-color, rgba(255, 255, 255, 0.05));
 }
 
 .product-card.visible {
@@ -407,6 +470,10 @@ nav a:hover:after, nav a.active:after {
     border-radius: 4px;
 }
 
+body.dark-theme .product-tag {
+    background: var(--gradient-primary, linear-gradient(135deg, #9d5cff 0%, #5c11ff 100%));
+}
+
 .product-info {
     padding: 20px;
 }
@@ -416,11 +483,19 @@ nav a:hover:after, nav a.active:after {
     margin-bottom: 10px;
 }
 
+body.dark-theme .product-name {
+    color: var(--text-white);
+}
+
 .product-price {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 15px;
     color: var(--primary);
+}
+
+body.dark-theme .product-price {
+    color: var(--colombia-blue-light, #4169E1);
 }
 
 .product-meta {
@@ -448,11 +523,20 @@ nav a:hover:after, nav a.active:after {
     font-size: 0.9rem;
 }
 
+body.dark-theme .add-to-cart-btn {
+    background: var(--gradient-cta, linear-gradient(135deg, #ff3e6c 0%, #ff8f6c 100%));
+}
+
 /* ---------- FOOTER ---------- */
 footer {
     background-color: var(--primary);
     color: var(--white);
     padding: 60px 0 30px;
+}
+
+body.dark-theme footer {
+    background-color: var(--darker-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-inner {
@@ -483,6 +567,10 @@ footer {
     color: var(--accent);
 }
 
+body.dark-theme .footer-links a:hover {
+    color: var(--colombia-yellow);
+}
+
 .social-links {
     display: flex;
     gap: 15px;
@@ -501,6 +589,11 @@ footer {
 
 .social-links a:hover {
     background-color: var(--accent);
+}
+
+body.dark-theme .social-links a:hover {
+    background-color: var(--colombia-yellow);
+    color: var(--dark-bg);
 }
 
 .footer-bottom {
@@ -571,7 +664,7 @@ footer {
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: #121212; /* Color oscuro consistente con el tema */
+        background-color: #121212;
         padding: 0;
         max-height: 0;
         overflow: hidden;
@@ -598,11 +691,15 @@ footer {
     nav ul li a {
         display: block;
         padding: 10px 0;
-        color: #ffffff; /* Texto blanco para el menú oscuro */
+        color: #ffffff;
     }
     
     nav ul li a:hover {
-        color: #9d5cff; /* Color del acento púrpura para el hover */
+        color: #9d5cff;
+    }
+    
+    body.dark-theme nav ul li a:hover {
+        color: var(--colombia-yellow);
     }
     
     .hero {
@@ -618,12 +715,36 @@ footer {
     }
 }
 
+@media (max-width: 576px) {
+    .instagram-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .newsletter-form form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form input {
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+    
+    .newsletter-form button {
+        border-radius: 4px;
+        padding: 12px;
+    }
+}
+
 /* Estilos adicionales para la página de inicio */
 
 /* ---------- CARACTERÍSTICAS ---------- */
 .features {
     padding: 60px 0;
     background-color: var(--white);
+}
+
+body.dark-theme .features {
+    background-color: var(--dark-bg);
 }
 
 .features-grid {
@@ -639,6 +760,10 @@ footer {
     transition: var(--transition);
 }
 
+body.dark-theme .feature {
+    background-color: var(--medium-bg);
+}
+
 .feature:hover {
     box-shadow: var(--shadow);
     transform: translateY(-5px);
@@ -650,12 +775,20 @@ footer {
     margin-bottom: 20px;
 }
 
+body.dark-theme .feature-icon {
+    color: var(--colombia-yellow);
+}
+
 .feature h3 {
     margin-bottom: 15px;
 }
 
 .feature p {
     color: var(--dark-gray);
+}
+
+body.dark-theme .feature p {
+    color: var(--text-muted);
 }
 
 /* ---------- BOTONES ---------- */
@@ -677,6 +810,10 @@ footer {
 .button:hover {
     background-color: var(--accent);
     color: var(--white);
+}
+
+body.dark-theme .button:hover {
+    background: var(--gradient-primary, linear-gradient(135deg, #9d5cff 0%, #5c11ff 100%));
 }
 
 .hero-button {
@@ -703,15 +840,29 @@ footer {
     transition: var(--transition);
 }
 
+body.dark-theme .view-all-button {
+    color: var(--text-white);
+    border: 2px solid var(--text-white);
+}
+
 .view-all-button:hover {
     background-color: var(--primary);
     color: var(--white);
+}
+
+body.dark-theme .view-all-button:hover {
+    background: var(--gradient-primary, linear-gradient(135deg, #9d5cff 0%, #5c11ff 100%));
+    border-color: transparent;
 }
 
 /* ---------- TESTIMONIOS ---------- */
 .testimonials {
     padding: 80px 0;
     background-color: var(--secondary);
+}
+
+body.dark-theme .testimonials {
+    background-color: var(--darker-bg);
 }
 
 .testimonials-slider {
@@ -731,6 +882,11 @@ footer {
     max-width: 400px;
 }
 
+body.dark-theme .testimonial {
+    background-color: var(--medium-bg);
+    border: 1px solid var(--border-color, rgba(255, 255, 255, 0.05));
+}
+
 .testimonial-content {
     margin-bottom: 20px;
 }
@@ -747,6 +903,11 @@ footer {
     font-size: 1.5rem;
     color: var(--accent);
     font-weight: bold;
+}
+
+body.dark-theme .testimonial-content p::before,
+body.dark-theme .testimonial-content p::after {
+    color: var(--colombia-yellow);
 }
 
 .testimonial-author {
@@ -784,6 +945,10 @@ footer {
     font-weight: 600;
     margin-top: -30px;
     margin-bottom: 40px;
+}
+
+body.dark-theme .section-subtitle {
+    color: var(--colombia-blue-light);
 }
 
 .instagram-grid {
@@ -839,6 +1004,11 @@ footer {
     color: var(--white);
 }
 
+body.dark-theme .newsletter-section {
+    background-color: var(--darker-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 .newsletter-container {
     display: flex;
     justify-content: space-between;
@@ -891,8 +1061,16 @@ footer {
     transition: var(--transition);
 }
 
+body.dark-theme .newsletter-form button {
+    background: var(--gradient-cta, linear-gradient(135deg, #ff3e6c 0%, #ff8f6c 100%));
+}
+
 .newsletter-form button:hover {
     background-color: #e34500;
+}
+
+body.dark-theme .newsletter-form button:hover {
+    opacity: 0.9;
 }
 
 /* Responsive para las nuevas secciones */
@@ -922,22 +1100,168 @@ footer {
     }
 }
 
-@media (max-width: 576px) {
-    .instagram-grid {
-        grid-template-columns: repeat(2, 1fr);
+/* Animaciones generales */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
     }
-    
-    .newsletter-form form {
-        flex-direction: column;
+    50% {
+        transform: scale(1.05);
     }
-    
-    .newsletter-form input {
-        border-radius: 4px;
-        margin-bottom: 10px;
+    100% {
+        transform: scale(1);
     }
-    
-    .newsletter-form button {
-        border-radius: 4px;
-        padding: 12px;
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+/* Fondos con círculos para todas las páginas */
+.bg-circles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.07;
+    pointer-events: none;
+}
+
+.circle-1 {
+    width: 500px;
+    height: 500px;
+    top: -100px;
+    right: -100px;
+    background: var(--colombia-yellow);
+    animation: float 20s infinite alternate ease-in-out;
+}
+
+.circle-2 {
+    width: 300px;
+    height: 300px;
+    bottom: 10%;
+    left: -100px;
+    background: var(--colombia-blue);
+    animation: float 15s infinite alternate-reverse ease-in-out;
+}
+
+.circle-3 {
+    width: 200px;
+    height: 200px;
+    top: 60%;
+    right: 15%;
+    background: var(--colombia-red);
+    animation: float 12s infinite alternate ease-in-out;
+}
+
+.circle-4 {
+    width: 250px;
+    height: 250px;
+    top: 40%;
+    left: 50%;
+    background: var(--colombia-blue);
+    opacity: 0.15;
+    animation: float 18s infinite alternate-reverse ease-in-out;
+    z-index: -1;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(50px, 50px) scale(1.1);
+    }
+}
+
+/* Estilo para partículas tipo destellos de estrellas en toda la pantalla */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.particle-star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Hacer las estrellas un poco más grandes y brillantes */
+.particle-star.star-1 {
+    width: 2px;
+    height: 2px;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+    animation: twinkle 4s infinite ease-in-out;
+}
+
+.particle-star.star-2 {
+    width: 3px;
+    height: 3px;
+    box-shadow: 0 0 8px 1px rgba(255, 218, 0, 0.8); /* Amarillo */
+    animation: twinkle 6s infinite ease-in-out;
+}
+
+.particle-star.star-3 {
+    width: 2px;
+    height: 2px;
+    box-shadow: 0 0 12px 2px rgba(0, 51, 141, 0.8); /* Azul */
+    animation: twinkle 5s infinite ease-in-out;
+}
+
+.particle-star.star-4 {
+    width: 3px;
+    height: 3px;
+    box-shadow: 0 0 6px 1px rgba(200, 16, 46, 0.8); /* Rojo */
+    animation: twinkle 7s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.2);
+    }
+}
+
+/* Gradientes de colores colombianos para usar en diferentes elementos */
+.colombia-gradient {
+    background: linear-gradient(90deg, 
+        var(--colombia-yellow) 0%, 
+        var(--colombia-blue) 50%, 
+        var(--colombia-red) 100%);
+    background-size: 300% 100%;
+    animation: subtle-flow 8s ease infinite alternate;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes subtle-flow {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
     }
 }

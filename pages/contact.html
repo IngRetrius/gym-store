@@ -8,10 +8,18 @@
     <link rel="stylesheet" href="../css/cart.css">
     <link rel="stylesheet" href="../css/dark-temple.css">
     <link rel="stylesheet" href="../css/contact.css">
+    <link rel="stylesheet" href="../css/colombia-minimal.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
+<body class="dark-theme">
+    <!-- Fondo con círculos -->
+    <div class="bg-circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+    </div>
+
     <header>
         <div class="header-inner container">
             <div class="logo">
@@ -59,7 +67,7 @@
                     <p>Para cualquier consulta, duda o sugerencia, contáctanos directamente a través de WhatsApp. Nuestro equipo está disponible para atenderte personalmente.</p>
                     
                     <div class="contact-location">
-                        <div class="location-icon">
+                        <div class="location-icon" style="background: linear-gradient(rgba(255, 218, 0, 0.1), rgba(255, 218, 0, 0.05)); color: var(--colombia-yellow);">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="location-info">
@@ -69,7 +77,7 @@
                     </div>
                     
                     <div class="contact-hours">
-                        <div class="hours-icon">
+                        <div class="hours-icon" style="background: linear-gradient(rgba(0, 51, 141, 0.1), rgba(0, 51, 141, 0.05)); color: var(--colombia-blue);">
                             <i class="far fa-clock"></i>
                         </div>
                         <div class="hours-info">
@@ -81,15 +89,15 @@
                     
                     <div class="contact-benefits">
                         <div class="benefit-item">
-                            <i class="fas fa-headset"></i>
+                            <i class="fas fa-headset" style="color: var(--colombia-yellow);"></i>
                             <span>Atención personalizada</span>
                         </div>
                         <div class="benefit-item">
-                            <i class="fas fa-bolt"></i>
+                            <i class="fas fa-bolt" style="color: var(--colombia-blue);"></i>
                             <span>Respuesta rápida</span>
                         </div>
                         <div class="benefit-item">
-                            <i class="fas fa-shield-alt"></i>
+                            <i class="fas fa-shield-alt" style="color: var(--colombia-red);"></i>
                             <span>Comunicación segura</span>
                         </div>
                     </div>
@@ -108,7 +116,7 @@
                             <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wa.me/573106564709" alt="Código QR WhatsApp" class="qr-code">
                         </div>
                         
-                        <a href="https://wa.me/+573106564709" class="whatsapp-button" target="_blank">
+                        <a href="https://wa.me/+573106564709" class="whatsapp-button colombia-gradient" target="_blank">
                             <i class="fab fa-whatsapp"></i>
                             INICIAR CHAT
                         </a>
@@ -199,7 +207,7 @@
                     <span id="cart-total">$0.00</span>
                 </div>
             </div>
-            <button id="checkout-whatsapp" class="checkout-btn">
+            <button id="checkout-whatsapp" class="checkout-btn colombia-gradient">
                 <i class="fab fa-whatsapp"></i>
                 Comprar por WhatsApp
             </button>
@@ -211,5 +219,6 @@
     <script src="../js/main.js"></script>
     <script src="../js/cart.js"></script>
     <script src="../js/whatsapp-redirect.js"></script>
+    <script src="../js/minimal-animations.js"></script>
 </body>
 </html>

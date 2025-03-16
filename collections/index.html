@@ -8,11 +8,19 @@
     <link rel="stylesheet" href="../css/collections.css">
     <link rel="stylesheet" href="../css/cart.css">
     <link rel="stylesheet" href="../css/dark-temple.css">
-    <link rel="stylesheet" href="../css/dark-collections.css">
+    <link rel="stylesheet" href="../css/colombia-minimal.css">
+    <link rel="stylesheet" href="../css/drops-style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
+<body class="dark-theme">
+    <!-- Fondo con círculos -->
+    <div class="bg-circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+    </div>
+
     <header>
         <div class="header-inner container">
             <div class="logo">
@@ -44,170 +52,134 @@
     </header>
 
     <main>
-        <!-- Banner del Drop actual -->
-        <section class="drop-banner">
-            <div class="drop-content">
-                <div class="drop-number">DROP 001</div>
-                <h1 class="drop-title">ECLIPSE</h1>
-                <p class="drop-description">Nuestra primera colección limitada. Inspirada en la dualidad entre luz y oscuridad.</p>
+        <!-- Banner del Drop actual centrado -->
+        <section class="drop-banner-centered">
+            <div class="drop-content-centered">
+                <div class="drop-number-badge">DROP 001</div>
+                <h1 class="drop-title-centered">ECLIPSE</h1>
+                <p class="drop-description-centered">Nuestra primera colección limitada. Inspirada en la dualidad entre luz y oscuridad.</p>
                 
-                <div class="drop-meta">
-                    <div class="drop-info">
-                        <span class="drop-label">LANZAMIENTO</span>
-                        <span class="drop-value">15.03.2025</span>
+                <div class="drop-meta-centered">
+                    <div class="drop-info-centered">
+                        <span class="drop-label-centered">LANZAMIENTO</span>
+                        <span class="drop-value-centered">15.03.2025</span>
                     </div>
-                    <div class="drop-info">
-                        <span class="drop-label">DISPONIBILIDAD</span>
-                        <span class="drop-value">72 HORAS</span>
+                    <div class="drop-info-centered">
+                        <span class="drop-label-centered">DISPONIBILIDAD</span>
+                        <span class="drop-value-centered">72 HORAS</span>
                     </div>
-                    <div class="drop-info">
-                        <span class="drop-label">PIEZAS</span>
-                        <span class="drop-value">LIMITADO 100 UNIDADES</span>
+                    <div class="drop-info-centered">
+                        <span class="drop-label-centered">PIEZAS</span>
+                        <span class="drop-value-centered">LIMITADO 100 UNIDADES</span>
                     </div>
                 </div>
                 
-                <div class="countdown-container">
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="countdown-days">00</span>
-                        <span class="countdown-label">DÍAS</span>
+                <div class="countdown-container-centered">
+                    <div class="countdown-item-centered">
+                        <span class="countdown-number-centered" id="countdown-days">00</span>
+                        <span class="countdown-label-centered">DÍAS</span>
                     </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="countdown-hours">00</span>
-                        <span class="countdown-label">HORAS</span>
+                    <div class="countdown-item-centered">
+                        <span class="countdown-number-centered" id="countdown-hours">00</span>
+                        <span class="countdown-label-centered">HORAS</span>
                     </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="countdown-minutes">00</span>
-                        <span class="countdown-label">MINUTOS</span>
+                    <div class="countdown-item-centered">
+                        <span class="countdown-number-centered" id="countdown-minutes">00</span>
+                        <span class="countdown-label-centered">MINUTOS</span>
                     </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="countdown-seconds">00</span>
-                        <span class="countdown-label">SEGUNDOS</span>
+                    <div class="countdown-item-centered">
+                        <span class="countdown-number-centered" id="countdown-seconds">00</span>
+                        <span class="countdown-label-centered">SEGUNDOS</span>
                     </div>
                 </div>
             </div>
         </section>
         
         <!-- Filtros de productos -->
-        <section class="filter-section">
+        <section class="filter-section-centered">
             <div class="container">
-                <div class="filter-container">
-                    <button class="filter-button active" data-filter="all">TODOS</button>
-                    <button class="filter-button" data-filter="tops">TOPS</button>
-                    <button class="filter-button" data-filter="outerwear">OUTERWEAR</button>
-                    <button class="filter-button" data-filter="bottoms">BOTTOMS</button>
-                    <button class="filter-button" data-filter="accessories">ACCESORIOS</button>
+                <div class="filter-container-centered">
+                    <button class="filter-button-centered active" data-filter="all">TODOS</button>
+                    <button class="filter-button-centered" data-filter="tops">TOPS</button>
+                    <button class="filter-button-centered" data-filter="outerwear">OUTERWEAR</button>
+                    <button class="filter-button-centered" data-filter="bottoms">BOTTOMS</button>
+                    <button class="filter-button-centered" data-filter="accessories">ACCESORIOS</button>
                 </div>
             </div>
         </section>
         
         <!-- Productos del Drop -->
-        <section class="drop-products container">
-            <div class="products-grid">
+        <section class="drop-products-centered container">
+            <div class="products-grid-centered">
                 <!-- Producto 1 -->
-                <div class="product-card" data-category="tops">
-                    <div class="product-image">
+                <div class="product-card-centered" data-category="tops">
+                    <div class="product-image-centered">
                         <img src="../assets/images/products/eclipse-tshirt.jpg" alt="Eclipse Oversized Tee" onerror="this.src='../assets/images/products/placeholder.jpg'; this.onerror=null;">
-                        <div class="product-actions">
-                            <button class="quick-view-btn" data-product-id="eclipse-1">VISTA RÁPIDA</button>
-                            <button class="add-to-cart-btn" data-product-id="eclipse-1">AÑADIR AL CARRITO</button>
-                        </div>
-                        <div class="product-badge">
-                            <span class="product-stock">STOCK: 47/100</span>
-                        </div>
+                        <div class="stock-badge">STOCK: 47/100</div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Eclipse Oversized Tee</h3>
-                        <div class="product-price">$499.00</div>
+                    <div class="product-info-centered">
+                        <h3 class="product-name-centered">Eclipse Oversized Tee</h3>
+                        <div class="product-price-centered">$499.00</div>
                     </div>
                 </div>
                 
                 <!-- Producto 2 -->
-                <div class="product-card" data-category="outerwear">
-                    <div class="product-image">
+                <div class="product-card-centered" data-category="outerwear">
+                    <div class="product-image-centered">
                         <img src="../assets/images/products/eclipse-hoodie.jpg" alt="Eclipse Pullover Hoodie" onerror="this.src='../assets/images/products/placeholder.jpg'; this.onerror=null;">
-                        <div class="product-actions">
-                            <button class="quick-view-btn" data-product-id="eclipse-2">VISTA RÁPIDA</button>
-                            <button class="add-to-cart-btn" data-product-id="eclipse-2">AÑADIR AL CARRITO</button>
-                        </div>
-                        <div class="product-badge">
-                            <span class="product-stock">STOCK: 31/100</span>
-                        </div>
+                        <div class="stock-badge">STOCK: 31/100</div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Eclipse Pullover Hoodie</h3>
-                        <div class="product-price">$799.00</div>
+                    <div class="product-info-centered">
+                        <h3 class="product-name-centered">Eclipse Pullover Hoodie</h3>
+                        <div class="product-price-centered">$799.00</div>
                     </div>
                 </div>
                 
                 <!-- Producto 3 -->
-                <div class="product-card" data-category="bottoms">
-                    <div class="product-image">
+                <div class="product-card-centered" data-category="bottoms">
+                    <div class="product-image-centered">
                         <img src="../assets/images/products/eclipse-joggers.jpg" alt="Eclipse Cargo Joggers" onerror="this.src='../assets/images/products/placeholder.jpg'; this.onerror=null;">
-                        <div class="product-actions">
-                            <button class="quick-view-btn" data-product-id="eclipse-3">VISTA RÁPIDA</button>
-                            <button class="add-to-cart-btn" data-product-id="eclipse-3">AÑADIR AL CARRITO</button>
-                        </div>
-                        <div class="product-badge">
-                            <span class="product-stock">STOCK: 28/100</span>
-                        </div>
+                        <div class="stock-badge">STOCK: 28/100</div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Eclipse Cargo Joggers</h3>
-                        <div class="product-price">$649.00</div>
+                    <div class="product-info-centered">
+                        <h3 class="product-name-centered">Eclipse Cargo Joggers</h3>
+                        <div class="product-price-centered">$649.00</div>
                     </div>
                 </div>
                 
                 <!-- Producto 4 -->
-                <div class="product-card" data-category="accessories">
-                    <div class="product-image">
+                <div class="product-card-centered" data-category="accessories">
+                    <div class="product-image-centered">
                         <img src="../assets/images/products/eclipse-cap.jpg" alt="Eclipse Tech Cap" onerror="this.src='../assets/images/products/placeholder.jpg'; this.onerror=null;">
-                        <div class="product-actions">
-                            <button class="quick-view-btn" data-product-id="eclipse-4">VISTA RÁPIDA</button>
-                            <button class="add-to-cart-btn" data-product-id="eclipse-4">AÑADIR AL CARRITO</button>
-                        </div>
-                        <div class="product-badge">
-                            <span class="product-stock">STOCK: 15/100</span>
-                        </div>
+                        <div class="stock-badge">STOCK: 15/100</div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Eclipse Tech Cap</h3>
-                        <div class="product-price">$349.00</div>
+                    <div class="product-info-centered">
+                        <h3 class="product-name-centered">Eclipse Tech Cap</h3>
+                        <div class="product-price-centered">$349.00</div>
                     </div>
                 </div>
                 
                 <!-- Producto 5 -->
-                <div class="product-card" data-category="tops">
-                    <div class="product-image">
+                <div class="product-card-centered" data-category="tops">
+                    <div class="product-image-centered">
                         <img src="../assets/images/products/eclipse-longsleeve.jpg" alt="Eclipse Long Sleeve Tee" onerror="this.src='../assets/images/products/placeholder.jpg'; this.onerror=null;">
-                        <div class="product-actions">
-                            <button class="quick-view-btn" data-product-id="eclipse-5">VISTA RÁPIDA</button>
-                            <button class="add-to-cart-btn" data-product-id="eclipse-5">AÑADIR AL CARRITO</button>
-                        </div>
-                        <div class="product-badge">
-                            <span class="product-stock">STOCK: 22/100</span>
-                        </div>
+                        <div class="stock-badge">STOCK: 22/100</div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Eclipse Long Sleeve Tee</h3>
-                        <div class="product-price">$549.00</div>
+                    <div class="product-info-centered">
+                        <h3 class="product-name-centered">Eclipse Long Sleeve Tee</h3>
+                        <div class="product-price-centered">$549.00</div>
                     </div>
                 </div>
                 
                 <!-- Producto 6 -->
-                <div class="product-card" data-category="outerwear">
-                    <div class="product-image">
+                <div class="product-card-centered" data-category="outerwear">
+                    <div class="product-image-centered">
                         <img src="../assets/images/products/eclipse-jacket.jpg" alt="Eclipse Technical Jacket" onerror="this.src='../assets/images/products/placeholder.jpg'; this.onerror=null;">
-                        <div class="product-actions">
-                            <button class="quick-view-btn" data-product-id="eclipse-6">VISTA RÁPIDA</button>
-                            <button class="add-to-cart-btn" data-product-id="eclipse-6">AÑADIR AL CARRITO</button>
-                        </div>
-                        <div class="product-badge">
-                            <span class="product-stock">STOCK: 10/100</span>
-                        </div>
+                        <div class="stock-badge">STOCK: 10/100</div>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Eclipse Technical Jacket</h3>
-                        <div class="product-price">$1,199.00</div>
+                    <div class="product-info-centered">
+                        <h3 class="product-name-centered">Eclipse Technical Jacket</h3>
+                        <div class="product-price-centered">$1,199.00</div>
                     </div>
                 </div>
             </div>
@@ -296,6 +268,7 @@
     <script src="../js/cart.js"></script>
     <script src="../js/whatsapp-redirect.js"></script>
     <script src="collections.js"></script>
+    <script src="../js/minimal-animations.js"></script>
     <script>
         // Script para la cuenta regresiva
         document.addEventListener('DOMContentLoaded', function() {
@@ -333,8 +306,8 @@
             }, 1000);
             
             // Agregar eventos para los botones de filtro
-            const filterButtons = document.querySelectorAll('.filter-button');
-            const productCards = document.querySelectorAll('.product-card');
+            const filterButtons = document.querySelectorAll('.filter-button-centered');
+            const productCards = document.querySelectorAll('.product-card-centered');
             
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {

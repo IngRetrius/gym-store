@@ -1,10 +1,96 @@
 // collections.js - Script para manejar la interacción con las colecciones
+// Modificado para integrar la paleta de colores colombiana y los efectos visuales
 
 document.addEventListener('DOMContentLoaded', function() {
     // Elementos DOM
     const collectionsPanel = document.querySelector('.collections-panel');
     const selectedCollection = document.getElementById('selected-collection');
     const collectionCards = document.querySelectorAll('.collection-card');
+    
+    // Aplicar efectos visuales de partículas y círculos para consistencia con el diseño principal
+    const applyVisualEffects = () => {
+        // Verificar si ya existen los elementos visuales
+        if (!document.querySelector('.particles-container')) {
+            // Aplicar partículas estrellas a la página de colecciones si no existen
+            const particlesContainer = document.createElement('div');
+            particlesContainer.className = 'particles-container';
+            document.body.appendChild(particlesContainer);
+            
+            // Añadir partículas (estrellas)
+            const particleCount = 40;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = `particle-star star-${Math.floor(Math.random() * 4) + 1}`;
+                
+                // Posición aleatoria por toda la pantalla
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                
+                particle.style.left = `${posX}vw`;
+                particle.style.top = `${posY}vh`;
+                
+                // Añadir retraso aleatorio a la animación
+                particle.style.animationDelay = `${Math.random() * 7}s`;
+                
+                // Factor de movimiento para parallax
+                particle.setAttribute('data-factor', (0.2 + Math.random() * 0.4).toFixed(2));
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Verificar y añadir círculos si no existen
+        if (!document.querySelector('.bg-circles')) {
+            const circlesContainer = document.createElement('div');
+            circlesContainer.className = 'bg-circles';
+            document.body.appendChild(circlesContainer);
+            
+            // Añadir círculos con colores de la bandera colombiana
+            const circles = [
+                { className: 'circle circle-1', color: '#FFDA00' }, // Amarillo
+                { className: 'circle circle-2', color: '#00338D' }, // Azul
+                { className: 'circle circle-3', color: '#C8102E' }, // Rojo
+                { className: 'circle circle-4', color: '#00338D' }  // Azul (nuevo)
+            ];
+            
+            circles.forEach(({ className, color }) => {
+                const circle = document.createElement('div');
+                circle.className = className;
+                circle.style.background = color;
+                circlesContainer.appendChild(circle);
+            });
+        }
+    };
+    
+    // Aplicar efectos visuales al cargar la página
+    applyVisualEffects();
+    
+    // Añadir efecto de parallax para las partículas
+    const parallaxEffect = (e) => {
+        const particles = document.querySelectorAll('.particle-star');
+        const circles = document.querySelectorAll('.circle');
+        
+        // Movimiento sutil para las partículas
+        particles.forEach(particle => {
+            const factor = parseFloat(particle.getAttribute('data-factor') || 0.3);
+            const moveX = (e.clientX / window.innerWidth - 0.5) * factor * 40;
+            const moveY = (e.clientY / window.innerHeight - 0.5) * factor * 40;
+            particle.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+        
+        // Movimiento de los círculos
+        circles.forEach(circle => {
+            const speed = parseFloat(circle.getAttribute('data-speed') || 0.02);
+            const offsetX = (0.5 - e.clientX / window.innerWidth) * speed * 100;
+            const offsetY = (0.5 - e.clientY / window.innerHeight) * speed * 100;
+            
+            circle.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+        });
+    };
+    
+    // Agregar evento de movimiento del mouse para el efecto parallax
+    window.addEventListener('mousemove', parallaxEffect);
     
     // Datos de las colecciones
     const collectionsData = {
@@ -217,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <img src="${product.image}" alt="${product.name}" onerror="this.src='../assets/images/products/placeholder.jpg'; this.onerror=null;">
                         <div class="product-actions">
                             <button class="quick-view-btn" data-product-id="${product.id}">VISTA RÁPIDA</button>
-                            <button class="add-to-cart-btn" data-product-id="${product.id}">AÑADIR AL CARRITO</button>
+                            <button class="add-to-cart-btn colombia-gradient" data-product-id="${product.id}">AÑADIR AL CARRITO</button>
                         </div>
                     </div>
                     <div class="product-info">
