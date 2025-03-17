@@ -231,7 +231,7 @@ body.dark-theme {
 
 /* Hero a pantalla completa */
 .hero-fullscreen {
-    height: 100vh;
+    height: 110vh;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -253,7 +253,7 @@ body.dark-theme {
     flex-direction: column;
     justify-content: center;
     animation: fadeInLeft 1s ease-out forwards;
-    background-color: var(--dark-bg);
+    background-color: transparent;
 }
 
 .hero-image {
@@ -328,7 +328,9 @@ body.dark-theme {
     min-height: auto;
     display: flex;
     align-items: center;
-    margin-top: -40px;
+    margin-top: 10;
+    position: relative; /* Asegura posicionamiento correcto */
+    z-index: 3; /* Da prioridad visual a esta sección */
 }
 
 .values-grid {

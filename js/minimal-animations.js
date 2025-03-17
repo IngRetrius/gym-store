@@ -112,17 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
     addBlueCircle();
     createStarParticles();
     
-    // Manejar apertura y cierre del menú móvil
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const nav = document.querySelector('nav');
-    
-    if (menuToggle && nav) {
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-    }
-    
     // Detección de scroll para el header
     window.addEventListener('scroll', () => {
         const header = document.querySelector('.modern-header');
